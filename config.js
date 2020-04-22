@@ -11,7 +11,8 @@ const opts = {
     password: secrets.ircPassword
   },
   channels: [
-    "#alazymeme"
+    "#alazymeme",
+    "#samtwocan"
   ]
 };
 
@@ -68,7 +69,20 @@ let enabledChannels = {
     protection: {
       endpoint: "https://bot.alazymeme.com/api/v1/banphrases/test",
     }
-  }
+  },
+  samtwocan: {
+    id: 138980246,
+    formats: {
+      title: "samPog NEW TITLE! samPog 👉 $VALUE$ 👉 ",
+      game: "samPog NEW GAME! samPog 👉 $VALUE$ 👉 ",
+      live: "POGGERSCHAMP SAMTWOCAN HAS GONE LIVE! POGGERSCHAMP 👉 ",
+      offline:
+        "peepoSad SAMTWOCAN HAS GONE OFFLINE! peepoSad 👉 "
+    },
+    protection: {
+      endpoint: "https://samtwocan.feelsokaybot.com/api/v1/banphrases/test",
+    }
+  },
 };
 
 module.exports = {
