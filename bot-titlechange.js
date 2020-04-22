@@ -29,11 +29,9 @@ const knownCommands = [
   help,
   bot,
   ping,
-  tcbping,
   setData,
   debugData,
-  tcbdebug,
-  tcbquit
+  quit
 ];
 
 // the main data storage object.
