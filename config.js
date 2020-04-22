@@ -7,7 +7,7 @@ const opts = {
     secure: true
   },
   identity: {
-    username: "feelsokaybot",
+    username: "alazydroid",
     password: secrets.ircPassword
   },
   channels: [
@@ -59,8 +59,8 @@ let enabledChannels = {
   alazymeme: {
     id: 103973901,
     formats: {
-      title: "alazymGa NEW TITLE! alazymGa 👉 $VALUE$ 👉 ",
-      game: "alazymGa NEW GAME! alazymGa 👉 $VALUE$ 👉 ",
+      title: "POGGERS NEW TITLE! POGGERS 👉 $VALUE$ 👉 ",
+      game: "POGGERS NEW GAME! POGGERS 👉 $VALUE$ 👉 ",
       live: "KKool GuitarTime ALAZYMEME HAS GONE LIVE! KKool GuitarTime 👉 ",
       offline:
         "FeelsGoodMan TeaTime ALAZYMEME HAS GONE OFFLINE! FeelsGoodMan TeaTime 👉 "
