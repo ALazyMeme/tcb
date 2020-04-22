@@ -890,7 +890,7 @@ async function help(channelName, context, params) {
     channelName,
     context["display-name"],
     `Available commands: ${config.commandPrefix}notifyme <event> [optional value], ` +
-      `${config.commandPrefix}removeme <event> [optional value], ${config.commandPrefix}subscribed, ${config.commandPrefix}events, ${config.commandPrefix}title, ${config.commandPrefix}game, ${config.commandPrefix}islive, ${config.commandPrefix}help`
+      `${config.commandPrefix}removeme <event> [optional value], ${config.commandPrefix}subscribed, ${config.commandPrefix}events, ${config.commandPrefix}title, ${config.commandPrefix}game, ${config.commandPrefix}help, ${config.commandPrefix}help`
   );
 }
 
@@ -908,7 +908,7 @@ async function commands(channelName, context, params) {
     channelName,
     context["display-name"],
     `Available commands: ${config.commandPrefix}notifyme <event> [optional value], ` +
-      `${config.commandPrefix}removeme <event> [optional value], ${config.commandPrefix}subscribed, ${config.commandPrefix}events, ${config.commandPrefix}title, ${config.commandPrefix}game, ${config.commandPrefix}islive, ${config.commandPrefix}help`
+      `${config.commandPrefix}removeme <event> [optional value], ${config.commandPrefix}subscribed, ${config.commandPrefix}events, ${config.commandPrefix}help, ${config.commandPrefix}commands`
   );
 }
 
