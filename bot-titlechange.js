@@ -957,7 +957,7 @@ async function ping(channelName, context, params) {
   await sendReply(
     channelName,
     context["display-name"],
-    "Reporting for duty NaM 7"
+    `HeyGuys Hi! For help, type ${config.commandPrefix}help :D`
   );
 }
 
