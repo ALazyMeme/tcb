@@ -12,7 +12,8 @@ const opts = {
   },
   channels: [
     "#alazymeme",
-    "#samtwocan"
+    "#samtwocan",
+    "#hyphin"
   ]
 };
 
@@ -81,6 +82,19 @@ let enabledChannels = {
     },
     protection: {
       endpoint: "https://samtwocan.feelsokaybot.com/api/v1/banphrases/test",
+    }
+  },
+  hyphin: {
+    id: 187610824,
+    formats: {
+      title: "peepoLaud NEW TITLE! peepoLaud 👉 $VALUE$ 👉 ",
+      game: "peepoLaud NEW GAME! peepoLaud 👉 $VALUE$ 👉 ",
+      live: "hyphinCorn HYPHIN HAS GONE LIVE! hyphinCorn 👉 ",
+      offline:
+        "hyphinRain HYPHIN HAS GONE OFFLINE! hyphinRain 👉 "
+    },
+    protection: {
+      endpoint: "https://hyphin.feelsokaybot.com/api/v1/banphrases/test",
     }
   },
 };
