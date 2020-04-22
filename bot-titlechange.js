@@ -27,7 +27,6 @@ const knownCommands = [
   game,
   islive,
   help,
-  bot,
   ping,
   setData,
   debugData,
@@ -108,7 +107,7 @@ async function events(channelName, context, params) {
     channelName,
     context["display-name"],
     `Available events: ${allEventsString}. ` +
-      'Type "!notifyme <event> [optional value]" to subscribe to an event!'
+      `Type "${config.commandPrefix}notifyme <event> [optional value]" to subscribe to an event!`
   );
 }
 
@@ -617,14 +616,14 @@ async function notifyme(channelName, context, params) {
           context["display-name"],
           `You already have a subscription for the ` +
             `event "${eventName}" that matches *all* values. Should you want to only get pinged on specific values, ` +
-            `type "!removeme ${eventName}" and run this command again.`
+            `type "${config.commandPrefix}removeme ${eventName}" and run this command again.`
         );
       } else {
         await sendReply(
           channelName,
           context["display-name"],
           `You already have a subscription for the ` +
-            `event "${eventName}". If you want to unsubscribe, type "!removeme ${eventName}".`
+            `event "${eventName}". If you want to unsubscribe, type "${config.commandPrefix}removeme ${eventName}".`
         );
       }
       return;
@@ -730,7 +729,7 @@ async function removeme(channelName, context, params) {
         channelName,
         context["display-name"],
         `You are not subscribed to the event "${eventName}". You can view all your ` +
-          `subscriptions with "!subscribed".`
+          `subscriptions with "${config.commandPrefix}subscribed".`
       );
     } else {
       // did not match that requiredValue
@@ -738,7 +737,7 @@ async function removeme(channelName, context, params) {
         channelName,
         context["display-name"],
         `You are not subscribed to the event "${eventName}" with the value "${requiredValue}" o_O ` +
-          `You can view all your subscriptions with "!subscribed".`
+          `You can view all your subscriptions with "${config.commandPrefix}subscribed".`
       );
     }
     return;
@@ -810,7 +809,7 @@ async function subscribed(channelName, context, params) {
     await sendReply(
       channelName,
       context["display-name"],
-      "You are not subscribed to any events. Use !notifyme <event> [optional value] to subscribe. " +
+      `You are not subscribed to any events. Use ${config.commandPrefix}notifyme <event> [optional value] to subscribe. ` +
         `Valid events are: ${getListOfAvailableEvents(channelName)}`
     );
     return;
@@ -892,8 +891,8 @@ async function help(channelName, context, params) {
   await sendReply(
     channelName,
     context["display-name"],
-    "Available commands: !notifyme <event> [optional value], " +
-      "!removeme <event> [optional value], !subscribed, !events, !title, !game, !islive, !help"
+    `Available commands: ${config.commandPrefix}notifyme <event> [optional value], ` +
+      `!removeme <event> [optional value], ${config.commandPrefix}subscribed, ${config.commandPrefix}events, ${config.commandPrefix}title, ${config.commandPrefix}game, ${config.commandPrefix}islive, ${config.commandPrefix}help`
   );
 }
 
@@ -926,7 +925,7 @@ async function bot(channelName, context, params) {
   await sendReply(
     channelName,
     context["display-name"],
-    "I am a bot made by randers. I can notify you when the channel goes live or the title changes. Try !help for a list of commands. pajaDank"
+    `I am a bot made by randers. I can notify you when the channel goes live or the title changes. Try ${config.commandPrefix}help for a list of commands.`
   );
 }
 
