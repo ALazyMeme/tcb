@@ -23,14 +23,12 @@ const knownCommands = [
   notifyme,
   removeme,
   subscribed,
-  title,
-  game,
-  islive,
   help,
   ping,
   setData,
   debugData,
-  quit
+  quit,
+  commands
 ];
 
 // the main data storage object.
@@ -879,6 +877,24 @@ async function islive(channelName, context, params) {
 }
 
 async function help(channelName, context, params) {
+  if (!(channelName in config.enabledChannels)) {
+    await sendReply(
+      channelName,
+      context["display-name"],
+      "Error: This channel is not enabled."
+    );
+    return;
+  }
+
+  await sendReply(
+    channelName,
+    context["display-name"],
+    `Available commands: ${config.commandPrefix}notifyme <event> [optional value], ` +
+      `${config.commandPrefix}removeme <event> [optional value], ${config.commandPrefix}subscribed, ${config.commandPrefix}events, ${config.commandPrefix}title, ${config.commandPrefix}game, ${config.commandPrefix}islive, ${config.commandPrefix}help`
+  );
+}
+
+async function commands(channelName, context, params) {
   if (!(channelName in config.enabledChannels)) {
     await sendReply(
       channelName,
