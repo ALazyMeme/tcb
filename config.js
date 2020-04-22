@@ -11,8 +11,7 @@ const opts = {
     password: secrets.ircPassword
   },
   channels: [
-    "#alazymeme",
-    "#samtwocan"
+    "#alazymeme"
   ]
 };
 
