@@ -13,8 +13,7 @@ const opts = {
   channels: [
     "#alazymeme",
     "#samtwocan",
-    "#hyphin",
-    "#sowhoyoudotcom"
+    "#hyphin"
   ]
 };
 
@@ -96,19 +95,6 @@ let enabledChannels = {
     },
     protection: {
       endpoint: "https://hyphin.feelsokaybot.com/api/v1/banphrases/test",
-    }
-  },
-  sowhoyoudotcom: {
-    id: 78640960,
-    formats: {
-      title: "PagChomp NEW TITLE! PagChomp 👉 $VALUE$ 👉 ",
-      game: "PagChomp NEW GAME! PagChomp 👉 $VALUE$ 👉 ",
-      live: "FeelsWayTooAmazingMan HYPHIN HAS GONE LIVE! FeelsWayTooAmazingMan 👉 ",
-      offline:
-        "PepeHands SOWHOYOUDOTCOM HAS GONE OFFLINE! PepeHands 👉 "
-    },
-    protection: {
-      endpoint: "https://bot.sowhoyou.com/api/v1/banphrases/test",
     }
   },
 };
