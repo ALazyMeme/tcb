@@ -67,9 +67,6 @@ let enabledChannels = {
       offline:
         "FeelsGoodMan TeaTime ALAZYMEME HAS GONE OFFLINE! FeelsGoodMan TeaTime 👉 "
     },
-    protection: {
-      endpoint: "https://bot.alazymeme.com/api/v1/banphrases/test",
-    }
   },
   samtwocan: {
     id: 138980246,
