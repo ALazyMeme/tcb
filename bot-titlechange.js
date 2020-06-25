@@ -24,10 +24,10 @@ const knownCommands = [
   removeme,
   subscribed,
   help,
-  tcbping,
+  ping,
   setData,
   debugData,
-  tcbquit,
+  quit,
   commands
 ];
 
@@ -953,7 +953,7 @@ async function titlechangebot(channelName, context, params) {
   await bot(channelName, context, params);
 }
 
-async function tcbping(channelName, context, params) {
+async function ping(channelName, context, params) {
   await sendReply(
     channelName,
     context["display-name"],
@@ -1029,7 +1029,7 @@ async function tcbdebug(channelName, context, params) {
   }
 }
 
-async function tcbquit(channelName, context, params) {
+async function quit(channelName, context, params) {
   if (!config.administrators.includes(context["username"])) {
     return;
   }
