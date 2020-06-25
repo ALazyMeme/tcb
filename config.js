@@ -11,12 +11,13 @@ const opts = {
     password: secrets.ircPassword
   },
   channels: [
-    "#alazymeme"
+    "#alazymeme",
+    "#alazydroid"
   ]
 };
 
 // Valid commands start with:
-const commandPrefix = "!";
+const commandPrefix = "&";
 
 // Twitch API Client ID
 const krakenClientId = secrets.krakenClientId;
