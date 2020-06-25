@@ -27,7 +27,7 @@ const knownCommands = [
   ping,
   setData,
   debugData,
-  quit,
+  tcbquit,
   commands
 ];
 
@@ -1033,7 +1033,7 @@ async function tcbdebug(channelName, context, params) {
   }
 }
 
-async function quit(channelName, context, params) {
+async function tcbquit(channelName, context, params) {
   if (!config.administrators.includes(context["username"])) {
     return;
   }
