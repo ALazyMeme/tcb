@@ -24,7 +24,7 @@ const knownCommands = [
   removeme,
   subscribed,
   help,
-  ping,
+  tcbping,
   setData,
   debugData,
   tcbquit,
@@ -953,16 +953,12 @@ async function titlechangebot(channelName, context, params) {
   await bot(channelName, context, params);
 }
 
-async function ping(channelName, context, params) {
+async function tcbping(channelName, context, params) {
   await sendReply(
     channelName,
     context["display-name"],
     `HeyGuys For help, type ${config.commandPrefix}help :D`
   );
-}
-
-async function tcbping(channelName, context, params) {
-  await ping(channelName, context, params);
 }
 
 async function setData(channelName, context, params) {
