@@ -11,9 +11,7 @@ const opts = {
     password: secrets.ircPassword
   },
   channels: [
-    "#alazymeme",
-    "#samtwocan",
-    "#hyphin"
+    "#alazymeme"
   ]
 };
 
@@ -67,33 +65,7 @@ let enabledChannels = {
       offline:
         "FeelsGoodMan TeaTime ALAZYMEME HAS GONE OFFLINE! FeelsGoodMan TeaTime 👉 "
     },
-  },
-  samtwocan: {
-    id: 138980246,
-    formats: {
-      title: "samPog NEW TITLE! samPog 👉 $VALUE$ 👉 ",
-      game: "samPog NEW GAME! samPog 👉 $VALUE$ 👉 ",
-      live: "POGGERSCHAMP SAMTWOCAN HAS GONE LIVE! POGGERSCHAMP 👉 ",
-      offline:
-        "peepoSad SAMTWOCAN HAS GONE OFFLINE! peepoSad 👉 "
-    },
-    protection: {
-      endpoint: "https://samtwocan.feelsokaybot.com/api/v1/banphrases/test",
-    }
-  },
-  hyphin: {
-    id: 187610824,
-    formats: {
-      title: "peepoLaud NEW TITLE! peepoLaud 👉 $VALUE$ 👉 ",
-      game: "peepoLaud NEW GAME! peepoLaud 👉 $VALUE$ 👉 ",
-      live: "hyphinCorn HYPHIN HAS GONE LIVE! hyphinCorn 👉 ",
-      offline:
-        "hyphinRain HYPHIN HAS GONE OFFLINE! hyphinRain 👉 "
-    },
-    protection: {
-      endpoint: "https://hyphin.feelsokaybot.com/api/v1/banphrases/test",
-    }
-  },
+  }
 };
 
 module.exports = {
