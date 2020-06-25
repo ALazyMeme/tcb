@@ -63,7 +63,7 @@ let enabledChannels = {
     formats: {
       title: "POGGERS NEW TITLE! POGGERS 👉 $VALUE$ 👉 ",
       game: "POGGERS NEW GAME! POGGERS 👉 $VALUE$ 👉 ",
-      live: "KKool GuitarTime ALAZYMEME HAS GONE LIVE! KKool GuitarTime 👉 ",
+      live: "KKrikool GuitarTime ALAZYMEME HAS GONE LIVE! KKrikool GuitarTime 👉 ",
       offline:
         "FeelsGoodMan TeaTime ALAZYMEME HAS GONE OFFLINE! FeelsGoodMan TeaTime 👉 "
     },
