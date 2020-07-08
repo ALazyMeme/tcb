@@ -1,4 +1,4 @@
-﻿"use strict";
+"use strict";
 
 const tmi = require("tmi.js");
 const request = require("request-promise");
@@ -23,12 +23,17 @@ const knownCommands = [
   notifyme,
   removeme,
   subscribed,
+  title,
+  game,
+  islive,
   help,
+  bot,
   ping,
+  tcbping,
   setData,
   debugData,
-  quit,
-  commands
+  tcbdebug,
+  tcbquit
 ];
 
 // the main data storage object.
@@ -890,42 +895,8 @@ async function help(channelName, context, params) {
     channelName,
     context["display-name"],
     `Available commands: ${config.commandPrefix}notifyme <event> [optional value], ` +
-      `${config.commandPrefix}removeme <event> [optional value], ${config.commandPrefix}subscribed, ${config.commandPrefix}events, ${config.commandPrefix}help, ${config.commandPrefix}commands`
+      `${config.commandPrefix}removeme <event> [optional value], ${config.commandPrefix}subscribed, ${config.commandPrefix}events, ${config.commandPrefix}title, ${config.commandPrefix}game, ${config.commandPrefix}islive, ${config.commandPrefix}help`
   );
-}
-
-async function commands(channelName, context, params) {
-  if (!(channelName in config.enabledChannels)) {
-    await sendReply(
-      channelName,
-      context["display-name"],
-      "Error: This channel is not enabled."
-    );
-    return;
-  }
-
-  await sendReply(
-    channelName,
-    context["display-name"],
-    `Available commands: ${config.commandPrefix}notifyme <event> [optional value], ` +
-      `${config.commandPrefix}removeme <event> [optional value], ${config.commandPrefix}subscribed, ${config.commandPrefix}events, ${config.commandPrefix}help, ${config.commandPrefix}commands`
-  );
-}
-
-async function titlechangebot_help(channelName, context, params) {
-  await help(channelName, context, params);
-}
-
-async function titlechangebothelp(channelName, context, params) {
-  await help(channelName, context, params);
-}
-
-async function tcb_help(channelName, context, params) {
-  await help(channelName, context, params);
-}
-
-async function tcbhelp(channelName, context, params) {
-  await help(channelName, context, params);
 }
 
 async function bot(channelName, context, params) {
@@ -941,23 +912,15 @@ async function bot(channelName, context, params) {
   await sendReply(
     channelName,
     context["display-name"],
-    `I am a bot made by randers. I can notify you when the channel goes live or the title changes. Try ${config.commandPrefix}help for a list of commands.`
+    `I am a bot that pings you in chat when certain events occur PogChamp Try ${config.commandPrefix}help for a list of commands. :O`
   );
-}
-
-async function titlechange_bot(channelName, context, params) {
-  await bot(channelName, context, params);
-}
-
-async function titlechangebot(channelName, context, params) {
-  await bot(channelName, context, params);
 }
 
 async function ping(channelName, context, params) {
   await sendReply(
     channelName,
     context["display-name"],
-    `HeyGuys For help, type ${config.commandPrefix}help :D`
+    "Reporting for duty NaM 7"
   );
 }
 
@@ -1029,7 +992,7 @@ async function tcbdebug(channelName, context, params) {
   }
 }
 
-async function quit(channelName, context, params) {
+async function tcbquit(channelName, context, params) {
   if (!config.administrators.includes(context["username"])) {
     return;
   }
@@ -1037,7 +1000,7 @@ async function quit(channelName, context, params) {
   await sendReply(
     channelName,
     context["display-name"],
-    "Quitting/restarting..."
+    "MrDestructoid 🔫"
   );
   process.exit(1);
 }
