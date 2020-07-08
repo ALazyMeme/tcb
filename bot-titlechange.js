@@ -29,7 +29,6 @@ const knownCommands = [
   help,
   bot,
   ping,
-  tcbping,
   setData,
   debugData,
   tcbdebug,
