@@ -17,7 +17,7 @@ const opts = {
 };
 
 // Valid commands start with:
-const commandPrefix = "&";
+const commandPrefix = "!";
 
 // Twitch API Client ID
 const krakenClientId = secrets.krakenClientId;
