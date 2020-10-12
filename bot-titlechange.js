@@ -1,11 +1,11 @@
 "use strict";
 
 const tmi = require("tmi.js");
+const IORedis = require("ioredis");
 const request = require("request-promise");
 const storage = require("node-persist");
 const AsyncLock = require("node-async-locks").AsyncLock;
 const escapeStringRegexp = require("escape-string-regexp");
-const Timer = require("./edit-timer").Timer;
 const config = require("./config");
 
 function sleep(ms) {
@@ -107,7 +107,7 @@ async function events(channelName, context, params) {
 
   await sendReply(
     channelName,
-    context["display-name"],
+    context,
     `Available events: ${allEventsString}. ` +
       `Type "${config.commandPrefix}notifyme <event> [optional value]" to subscribe to an event!`
   );
@@ -408,44 +408,110 @@ async function runChangeNotify(channelName, key, value) {
 
 async function saveUserSubscriptions(override = false) {
   if (!override) {
-    let previous = await storage.getItem("userSubscriptions") || [];
+    let previous = (await storage.getItem("userSubscriptions")) || [];
 
     let removed = previous.length - userSubscriptions.length;
 
     if (removed > 4) {
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
-      console.error("XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING");
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
+      console.error(
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXX TRIED TO REMOVE TOO MANY SUBS, REFUSING"
+      );
       userSubscriptions = previous;
       return;
     }
@@ -515,7 +581,7 @@ async function notifyme(channelName, context, params) {
   if (params.length < 1) {
     await sendReply(
       channelName,
-      context["display-name"],
+      context,
       `Please specify an event to subscribe to. ` +
         `The following events are available: ${getListOfAvailableEvents(
           channelName
@@ -530,7 +596,7 @@ async function notifyme(channelName, context, params) {
   if (!(eventName in getChannelAvailableEvents(channelName))) {
     await sendReply(
       channelName,
-      context["display-name"],
+      context,
       `The given event name is not valid. ` +
         `The following events are available: ${getListOfAvailableEvents(
           channelName
@@ -574,7 +640,7 @@ async function notifyme(channelName, context, params) {
     });
     await sendReply(
       channelName,
-      context["display-name"],
+      context,
       `Successfully subscribed you to the event ` +
         `"${eventName}". You previously had ${toRemove.length} subscription(s) for this event that were set to only match specific values. ` +
         `These subscriptions have been removed and you will now be notified regardless of the value. SeemsGood`
@@ -615,7 +681,7 @@ async function notifyme(channelName, context, params) {
       if (requiredValue.length > 0) {
         await sendReply(
           channelName,
-          context["display-name"],
+          context,
           `You already have a subscription for the ` +
             `event "${eventName}" that matches *all* values. Should you want to only get pinged on specific values, ` +
             `type "${config.commandPrefix}removeme ${eventName}" and run this command again.`
@@ -623,7 +689,7 @@ async function notifyme(channelName, context, params) {
       } else {
         await sendReply(
           channelName,
-          context["display-name"],
+          context,
           `You already have a subscription for the ` +
             `event "${eventName}". If you want to unsubscribe, type "${config.commandPrefix}removeme ${eventName}".`
         );
@@ -633,7 +699,7 @@ async function notifyme(channelName, context, params) {
       // user is trying to add specific subscription, and already has this exact specific subscription.
       await sendReply(
         channelName,
-        context["display-name"],
+        context,
         `You already have a subscription for the event ` +
           `"${eventName}" with the value "${requiredValue}".`
       );
@@ -656,14 +722,14 @@ async function notifyme(channelName, context, params) {
     // new generic sub
     await sendReply(
       channelName,
-      context["display-name"],
+      context,
       `I will now ping you in chat when ${eventConfig.description}!`
     );
   } else {
     // new specific sub
     await sendReply(
       channelName,
-      context["display-name"],
+      context,
       `I will now ping you in chat when ${eventConfig.description}, but only when the value contains ` +
         `"${requiredValue}"!`
     );
@@ -674,7 +740,7 @@ async function removeme(channelName, context, params) {
   if (params.length < 1) {
     await sendReply(
       channelName,
-      context["display-name"],
+      context,
       `Please specify an event to unsubscribe from. ` +
         `The following events are available: ${getListOfAvailableEvents(
           channelName
@@ -689,7 +755,7 @@ async function removeme(channelName, context, params) {
   if (!(eventName in getChannelAvailableEvents(channelName))) {
     await sendReply(
       channelName,
-      context["display-name"],
+      context,
       `The given event name is not valid. ` +
         `The following events are available: ${getListOfAvailableEvents(
           channelName
@@ -729,7 +795,7 @@ async function removeme(channelName, context, params) {
       // user was not subbed to this event at all
       await sendReply(
         channelName,
-        context["display-name"],
+        context,
         `You are not subscribed to the event "${eventName}". You can view all your ` +
           `subscriptions with "${config.commandPrefix}subscribed".`
       );
@@ -737,7 +803,7 @@ async function removeme(channelName, context, params) {
       // did not match that requiredValue
       await sendReply(
         channelName,
-        context["display-name"],
+        context,
         `You are not subscribed to the event "${eventName}" with the value "${requiredValue}" o_O ` +
           `You can view all your subscriptions with "${config.commandPrefix}subscribed".`
       );
@@ -751,7 +817,7 @@ async function removeme(channelName, context, params) {
 
   await sendReply(
     channelName,
-    context["display-name"],
+    context,
     `Successfully unsubscribed you from the event "${eventName}" ` +
       `${requiredValue.length > 0 ? `for the value "${requiredValue}" ` : ""}` +
       `(removed ${toRemove.length} ` +
@@ -810,7 +876,7 @@ async function subscribed(channelName, context, params) {
   if (msgParts.length < 1) {
     await sendReply(
       channelName,
-      context["display-name"],
+      context,
       `You are not subscribed to any events. Use ${config.commandPrefix}notifyme <event> [optional value] to subscribe. ` +
         `Valid events are: ${getListOfAvailableEvents(channelName)}`
     );
@@ -819,7 +885,7 @@ async function subscribed(channelName, context, params) {
 
   await sendReply(
     channelName,
-    context["display-name"],
+    context,
 
     `Your subscriptions in this channel: ${msgParts.join(", ")}`
   );
@@ -829,7 +895,7 @@ async function title(channelName, context, params) {
   if (!(channelName in config.enabledChannels)) {
     await sendReply(
       channelName,
-      context["display-name"],
+      context,
       "Error: This channel is not enabled."
     );
     return;
@@ -837,7 +903,7 @@ async function title(channelName, context, params) {
 
   await sendReply(
     channelName,
-    context["display-name"],
+    context,
     `Current title: ${currentData[channelName]["title"]}`
   );
 }
@@ -846,7 +912,7 @@ async function game(channelName, context, params) {
   if (!(channelName in config.enabledChannels)) {
     await sendReply(
       channelName,
-      context["display-name"],
+      context,
       "Error: This channel is not enabled."
     );
     return;
@@ -854,7 +920,7 @@ async function game(channelName, context, params) {
 
   await sendReply(
     channelName,
-    context["display-name"],
+    context,
     `Current game: ${currentData[channelName]["game"]}`
   );
 }
@@ -863,7 +929,7 @@ async function islive(channelName, context, params) {
   if (!(channelName in config.enabledChannels)) {
     await sendReply(
       channelName,
-      context["display-name"],
+      context,
       "Error: This channel is not enabled."
     );
     return;
@@ -871,7 +937,7 @@ async function islive(channelName, context, params) {
 
   await sendReply(
     channelName,
-    context["display-name"],
+    context,
     `Current live status: ${
       currentData[channelName]["live"]
         ? "The channel is live!"
@@ -884,7 +950,7 @@ async function help(channelName, context, params) {
   if (!(channelName in config.enabledChannels)) {
     await sendReply(
       channelName,
-      context["display-name"],
+      context,
       "Error: This channel is not enabled."
     );
     return;
@@ -892,7 +958,7 @@ async function help(channelName, context, params) {
 
   await sendReply(
     channelName,
-    context["display-name"],
+    context,
     `Available commands: ${config.commandPrefix}notifyme <event> [optional value], ` +
       `${config.commandPrefix}removeme <event> [optional value], ${config.commandPrefix}subscribed, ${config.commandPrefix}events, ${config.commandPrefix}title, ${config.commandPrefix}game, ${config.commandPrefix}islive, ${config.commandPrefix}help`
   );
@@ -902,7 +968,7 @@ async function bot(channelName, context, params) {
   if (!(channelName in config.enabledChannels)) {
     await sendReply(
       channelName,
-      context["display-name"],
+      context,
       "Error: This channel is not enabled."
     );
     return;
@@ -910,7 +976,7 @@ async function bot(channelName, context, params) {
 
   await sendReply(
     channelName,
-    context["display-name"],
+    context,
     `I am a bot that pings you in chat when certain events occur PogChamp Try ${config.commandPrefix}help for a list of commands. :O`
   );
 }
@@ -918,7 +984,7 @@ async function bot(channelName, context, params) {
 async function ping(channelName, context, params) {
   await sendReply(
     channelName,
-    context["display-name"],
+    context,
     "Reporting for duty NaM 7"
   );
 }
@@ -931,7 +997,7 @@ async function setData(channelName, context, params) {
   if (!(channelName in config.enabledChannels)) {
     await sendReply(
       channelName,
-      context["display-name"],
+      context,
       "Error: This channel is not enabled."
     );
     return;
@@ -977,7 +1043,7 @@ async function tcbdebug(channelName, context, params) {
 
     await sendReply(
       channelName,
-      context["display-name"],
+      context,
       JSON.stringify(result)
     );
     console.log(result);
@@ -985,7 +1051,7 @@ async function tcbdebug(channelName, context, params) {
     console.log(e);
     await sendReply(
       channelName,
-      context["display-name"],
+      context,
       `Error thrown: ${String(e)}`
     );
   }
@@ -998,7 +1064,7 @@ async function tcbquit(channelName, context, params) {
 
   await sendReply(
     channelName,
-    context["display-name"],
+    context,
     "MrDestructoid 🔫"
   );
   process.exit(1);
@@ -1128,13 +1194,16 @@ async function censorBanphrases(channelName, message) {
   return message;
 }
 
-async function sendReply(channelName, username, message) {
-  await sendMessage(channelName, `@${username}, ${message}`);
+async function sendReply(channelName, context, message) {
+  if ((config.enabledChannels[channelName] ?? {}).protection?.whisperCommandResponses ?? false) {
+    await client.whisper(context["username"], message);
+  } else {
+    await sendMessage(channelName, `@${context["display-name"]}, ${message}`);
+  }
 }
 
 let lastEgressMessages = [];
 let egressMessageLocks = [];
-let egressMessageTimers = [];
 
 async function sendMessage(channelName, message) {
   if (message.length <= 0) {
@@ -1191,15 +1260,7 @@ async function sendMessageUnsafe(channelName, message) {
         }
 
         // sleep (lock this channel) for 1650 ms (1200ms is minimum, but 1650 prevents us exceeding global limits)
-        // use a extendable timer in case we get timed out (then wait longer until lock release)
-        // see the onTimeoutHandler for more details
-        await new Promise(timerResolve => {
-          let timer = new Timer(1650, 1650, () => {
-            delete egressMessageTimers[channelName];
-            timerResolve();
-          });
-          egressMessageTimers[channelName] = timer;
-        });
+        await sleep(1650);
 
         console.log(`unlocking ${channelName}`);
         // unlock for this channel
@@ -1215,7 +1276,6 @@ let client = new tmi.client(config.opts);
 
 // Register our event handlers (defined below):
 client.on("message", onMessageHandler);
-client.on("timeout", onTimeoutHandler);
 client.on("connected", onConnectedHandler);
 client.on("disconnected", onDisconnectedHandler);
 
@@ -1241,7 +1301,34 @@ async function connect() {
 
 const endStripRegex = /[\s\u206D]+$/u;
 
-function onMessageHandler(target, context, msg, self) {
+const redis = new IORedis();
+redis.defineCommand("checkCooldown", {
+  numberOfKeys: 2,
+  lua: `local exists = redis.call('exists', KEYS[1], KEYS[2]);
+
+if exists == 0 then
+        -- both cooldowns are not hit
+        redis.call('psetex', KEYS[1], ARGV[1], '');
+        redis.call('psetex', KEYS[2], ARGV[2], '');
+        return 1
+else
+        return 0
+end`
+});
+
+const commandCooldowns = {
+  ping: {
+    user: 2 * 1000,
+    global: 1 * 1000
+  }
+};
+
+const defaultCooldowns = {
+  user: 5 * 1000,
+  global: 2 * 1000
+};
+
+async function onMessageHandler(target, context, msg, self) {
   if (self) {
     return;
   }
@@ -1282,54 +1369,27 @@ function onMessageHandler(target, context, msg, self) {
         continue;
       }
 
+      // cooldown config
+      let commandCooldownConfig = commandCooldowns[commandName];
+      if (commandCooldownConfig == null) {
+        commandCooldownConfig = defaultCooldowns;
+      }
+
+      // cooldown
+      const shouldRun = await redis.checkCooldown(
+        `bot-titlechange:cooldown:${context["room-id"]}:${commandName}:${context["user-id"]}`,
+        `bot-titlechange:cooldown:${context["room-id"]}:${commandName}`,
+        commandCooldownConfig.user,
+        commandCooldownConfig.global
+      );
+      if (shouldRun === 0) {
+        return;
+      }
+
       knownCommands[i](target, context, params);
       console.log(`* Executed ${commandName} command for ${context.username}`);
     }
   }
-}
-
-function onTimeoutHandler(channelName, username, reason, duration) {
-  const ourUsername = config.opts.identity.username;
-  if (username !== ourUsername) {
-    return;
-  }
-
-  // trim away the leading # character
-  channelName = channelName.substring(1);
-
-  let timer = egressMessageTimers[channelName];
-  if (typeof timer === "undefined") {
-    // get lock
-    let lock = egressMessageLocks[channelName];
-    if (typeof lock === "undefined") {
-      lock = new AsyncLock();
-      egressMessageLocks[channelName] = lock;
-    }
-
-    // create a timer and lock
-    lock.enter(token => {
-      console.log(`locked ${channelName} via timeout handler`);
-      (async () => {
-        await new Promise(resolve => {
-          timer = new Timer(duration * 1000, 0, () => {
-            delete egressMessageTimers[channelName];
-            resolve();
-          });
-          egressMessageTimers[channelName] = timer;
-        });
-
-        console.log(`unlocking ${channelName} from timeout handler`);
-        // unlock for this channel
-        token.leave();
-      })();
-    });
-
-    return;
-  }
-
-  // extend the existing timer.
-  // duration is in seconds, we need milliseconds here.
-  timer.update(duration * 1000);
 }
 
 function onConnectedHandler(addr, port) {

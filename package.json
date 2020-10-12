@@ -18,13 +18,14 @@
   },
   "homepage": "https://github.com/RAnders00/bot-titlechange#readme",
   "dependencies": {
-    "escape-string-regexp": "^3.0.0",
+    "escape-string-regexp": "^4.0.0",
+    "ioredis": "^4.17.3",
     "node-async-locks": "^1.0.1",
-    "node-persist": "^3.0.5",
-    "request-promise": "^4.2.5",
+    "node-persist": "^3.1.0",
+    "request-promise": "^4.2.6",
     "tmi.js": "^1.5.0"
   },
   "devDependencies": {
-    "prettier": "^2.0.5"
+    "prettier": "^2.1.2"
   }
 }
