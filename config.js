@@ -69,6 +69,8 @@ let enabledChannels = {
   }
 };
 
+opts.channels.push(...Object.keys(enabledChannels));
+
 module.exports = {
     opts: opts,
     commandPrefix: commandPrefix,
