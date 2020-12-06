@@ -60,11 +60,15 @@ let enabledChannels = {
   alazymeme: {
     id: 103973901,
     formats: {
-      title: "POGGERS NEW TITLE! POGGERS 👉 $VALUE$ 👉 ",
-      game: "POGGERS NEW GAME! POGGERS 👉 $VALUE$ 👉 ",
-      live: "KKrikool GuitarTime ALAZYMEME HAS GONE LIVE! KKrikool GuitarTime 👉 ",
+      title: 'POGGERS NEW TITLE! POGGERS 👉 $VALUE$ 👉 ',
+      game: 'POGGERS NEW GAME! POGGERS 👉 $VALUE$ 👉 ',
+      live: `KKrikool GuitarTime ${obfuscateName('ALAZYMEME')} HAS GONE LIVE! KKrikool GuitarTime 👉 `,
       offline:
-        "FeelsGoodMan TeaTime ALAZYMEME HAS GONE OFFLINE! FeelsGoodMan TeaTime 👉 "
+        `FeelsGoodMan TeaTime ${obfuscateName('ALAZYMEME')} HAS GONE OFFLINE! FeelsGoodMan TeaTime 👉 `
+    },
+    protection: {
+      endpoint: 'https://bot.alazymeme.com/api/v1/banphrases/test',
+      disabledCommands: ['game', 'title', 'islive']
     },
   }
 };
