@@ -25,7 +25,6 @@ const knownCommands = [
   subscribed,
   title,
   game,
-  islive,
   help,
   bot,
   ping,
@@ -925,27 +924,6 @@ async function game(channelName, context, params) {
   );
 }
 
-async function islive(channelName, context, params) {
-  if (!(channelName in config.enabledChannels)) {
-    await sendReply(
-      channelName,
-      context,
-      "Error: This channel is not enabled."
-    );
-    return;
-  }
-
-  await sendReply(
-    channelName,
-    context,
-    `Current live status: ${
-      currentData[channelName]["live"]
-        ? "The channel is live!"
-        : "The channel is offline :("
-    }`
-  );
-}
-
 async function help(channelName, context, params) {
   if (!(channelName in config.enabledChannels)) {
     await sendReply(
@@ -960,7 +938,7 @@ async function help(channelName, context, params) {
     channelName,
     context,
     `Available commands: ${config.commandPrefix}notifyme <event> [optional value], ` +
-      `${config.commandPrefix}removeme <event> [optional value], ${config.commandPrefix}subscribed, ${config.commandPrefix}events, ${config.commandPrefix}title, ${config.commandPrefix}game, ${config.commandPrefix}islive, ${config.commandPrefix}help`
+      `${config.commandPrefix}removeme <event> [optional value], ${config.commandPrefix}subscribed, ${config.commandPrefix}events, ${config.commandPrefix}title, ${config.commandPrefix}game, ${config.commandPrefix}help`
   );
 }
 
