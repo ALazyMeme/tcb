@@ -70,6 +70,20 @@ let enabledChannels = {
       endpoint: 'https://bot.alazymeme.com/api/v1/banphrases/test',
       disabledCommands: ['game', 'title', 'islive']
     },
+  },
+  zoro491: {
+    id: 91501224,
+    formats: {
+      title: 'PagChomp NEW TITLE! PagChomp 👉 $VALUE$ 👉 ',
+      game: 'PagChomp NEW GAME! PagChomp 👉 $VALUE$ 👉 ',
+      live: `ABDULpls ${obfuscateName('ZORO491')} HAS GONE LIVE! ABDULpls 👉 `,
+      offline:
+        `FeelsLagMan ${obfuscateName('ZORO491')} HAS GONE OFFLINE! FeelsLagMan 👉 `
+    },
+    protection: {
+      endpoint: 'https://zoro491.feelsokaybot.com/api/v1/banphrases/test',
+      disabledCommands: ['game', 'title', 'islive']
+    },
   }
 };
 
