@@ -76,9 +76,9 @@ let enabledChannels = {
     formats: {
       title: 'PagChomp NEW TITLE! PagChomp 👉 $VALUE$ 👉 ',
       game: 'PagChomp NEW GAME! PagChomp 👉 $VALUE$ 👉 ',
-      live: `ABDULpls ${obfuscateName('ZORO491')} HAS GONE LIVE! ABDULpls 👉 `,
+      live: `ABDULpls ZORO491 HAS GONE LIVE! ABDULpls 👉 `,
       offline:
-        `FeelsLagMan ${obfuscateName('ZORO491')} HAS GONE OFFLINE! FeelsLagMan 👉 `
+        `FeelsLagMan ZORO491 HAS GONE OFFLINE! FeelsLagMan 👉 `
     },
     protection: {
       endpoint: 'https://zoro491.feelsokaybot.com/api/v1/banphrases/test',
