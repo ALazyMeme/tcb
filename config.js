@@ -7,12 +7,12 @@ const opts = {
     secure: true,
   },
   identity: {
-    username: "alazydroid",
+    username: "pepegawithabot",
     password: secrets.ircPassword,
   },
   channels: [
-    "#alazymeme",
-    "#alazydroid"
+    "#cyacharlie",
+    "#pepegawithabot"
   ],
 };
 
@@ -27,15 +27,15 @@ const krakenClientId = secrets.krakenClientId;
 let administrators = ["alazymeme"];
 
 // The bot will post a "I am running"-style message to this channel on startup.
-const startupChannel = "alazymeme";
+const startupChannel = "pepegawithabot";
 
 // if a channel is offline-only protected, and a change occurs, the bot prints
 // to this channel instead of the channel the change occurred in.
-const onlinePrintChannel = "alazymeme";
+const onlinePrintChannel = "pepegawithabot";
 
 // list of channel names where the bot is not limited to the global 1.2 second
 // slowmode (channels it is broadcaster, moderator or VIP in)
-const modChannels = ["alazymeme", "alazydroid"];
+const modChannels = ["pepegawithabot", "cyacharlie"];
 
 // tip: use !userid <usernames...> command in the #pajlada chat to get user IDs
 // add the "protection" object to enable pajbot banphrase checking protection
@@ -57,34 +57,20 @@ function obfuscateName(str) {
 const globalLengthLimit = 480;
 
 let enabledChannels = {
-  alazymeme: {
-    id: 103973901,
-    formats: {
-      title: 'POGGERS NEW TITLE! POGGERS 👉 $VALUE$ 👉 ',
-      game: 'POGGERS NEW GAME! POGGERS 👉 $VALUE$ 👉 ',
-      live: `KKrikool GuitarTime ${obfuscateName('ALAZYMEME')} HAS GONE LIVE! KKrikool GuitarTime 👉 `,
-      offline:
-        `FeelsGoodMan TeaTime ${obfuscateName('ALAZYMEME')} HAS GONE OFFLINE! FeelsGoodMan TeaTime 👉 `
-    },
-    protection: {
-      endpoint: 'https://bot.alazymeme.com/api/v1/banphrases/test',
-      disabledCommands: ['game', 'title', 'islive']
-    },
-  },
-  zoro491: {
-    id: 91501224,
+  cyacharlie: {
+    id: 430913040,
     formats: {
       title: 'PagChomp NEW TITLE! PagChomp 👉 $VALUE$ 👉 ',
       game: 'PagChomp NEW GAME! PagChomp 👉 $VALUE$ 👉 ',
-      live: `ABDULpls ZORO491 HAS GONE LIVE! ABDULpls 👉 `,
+      live: `DinkDonk ${obfuscateName('CYACHARLIE')} HAS GONE LIVE! DinkDonk 👉 `,
       offline:
-        `FeelsLagMan ZORO491 HAS GONE OFFLINE! FeelsLagMan 👉 `
+        `cyachaSlam ${obfuscateName('CYACHARLIE')} HAS GONE OFFLINE! cyachaSlam 👉 `
     },
     protection: {
-      endpoint: 'https://zoro491.feelsokaybot.com/api/v1/banphrases/test',
+      endpoint: 'https://cyacharlie.feelsokaybot.com/api/v1/banphrases/test',
       disabledCommands: ['game', 'title', 'islive']
     },
-  }
+  },
 };
 
 opts.channels.push(...Object.keys(enabledChannels));
