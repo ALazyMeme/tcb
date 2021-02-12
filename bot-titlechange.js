@@ -9,7 +9,7 @@ const escapeStringRegexp = require("escape-string-regexp");
 const config = require("./config");
 
 function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 // use in array.filter() to ensure all values are unique
@@ -31,7 +31,7 @@ const knownCommands = [
   setData,
   debugData,
   tcbdebug,
-  tcbquit
+  tcbquit,
 ];
 
 // the main data storage object.
@@ -44,47 +44,49 @@ function getChannelAvailableEvents(channelName) {
   // available events for signing up for pings
   const availableEvents = {
     title: {
-      matcher: function(key, value) {
+      matcher: function (key, value) {
         return key === "title";
       },
       hasValue: true,
-      description: "when the title changes"
+      description: "when the title changes",
     },
     game: {
-      matcher: function(key, value) {
+      matcher: function (key, value) {
         return key === "game";
       },
       hasValue: true,
-      description: "when the game changes"
+      description: "when the game changes",
     },
     live: {
-      matcher: function(key, value) {
+      matcher: function (key, value) {
         return key === "live" && value === true;
       },
       hasValue: false,
-      description: "when the streamer goes live"
+      description: "when the streamer goes live",
     },
     offline: {
-      matcher: function(key, value) {
+      matcher: function (key, value) {
         return key === "live" && value === false;
       },
       hasValue: false,
-      description: "when the streamer goes offline"
+      description: "when the streamer goes offline",
     },
     partner: {
-      matcher: function(key, value) {
+      matcher: function (key, value) {
         return key === "partner" && value === true;
       },
       hasValue: false,
-      description: "when this streamer becomes partnered"
-    }
+      description: "when this streamer becomes partnered",
+    },
   };
 
   let returnObject = {};
 
   Object.keys(availableEvents)
-    .filter(evName => evName in config.enabledChannels[channelName]["formats"])
-    .forEach(evName => (returnObject[evName] = availableEvents[evName]));
+    .filter(
+      (evName) => evName in config.enabledChannels[channelName]["formats"]
+    )
+    .forEach((evName) => (returnObject[evName] = availableEvents[evName]));
 
   return returnObject;
 }
@@ -101,7 +103,9 @@ async function events(channelName, context, params) {
   let eventArray = Object.keys(channelAvailableEvents);
   let allEventsString = eventArray
     .sort()
-    .map(evName => `${evName} (${channelAvailableEvents[evName].description})`)
+    .map(
+      (evName) => `${evName} (${channelAvailableEvents[evName].description})`
+    )
     .join(", ");
 
   await sendReply(
@@ -139,8 +143,8 @@ async function doChannelAPIUpdates(channelName, channelId) {
     uri: "https://api.twitch.tv/kraken/channels/" + channelId,
     headers: {
       "Client-ID": config.krakenClientId,
-      Accept: "application/vnd.twitchtv.v5+json"
-    }
+      Accept: "application/vnd.twitchtv.v5+json",
+    },
   };
 
   try {
@@ -170,8 +174,8 @@ async function doStreamAPIUpdates(channelName, channelId) {
     uri: "https://api.twitch.tv/kraken/streams/" + channelId,
     headers: {
       "Client-ID": config.krakenClientId,
-      Accept: "application/vnd.twitchtv.v5+json"
-    }
+      Accept: "application/vnd.twitchtv.v5+json",
+    },
   };
 
   try {
@@ -314,9 +318,9 @@ async function runChangeNotify(channelName, key, value) {
     }
 
     let usersToPing = userSubscriptions
-      .filter(sub => sub.channel === channelName)
-      .filter(sub => sub.event === eventName)
-      .filter(sub => {
+      .filter((sub) => sub.channel === channelName)
+      .filter((sub) => sub.event === eventName)
+      .filter((sub) => {
         if (!eventConfig.hasValue) {
           return true;
         }
@@ -327,7 +331,7 @@ async function runChangeNotify(channelName, key, value) {
         );
       })
       .filter(onlyUnique)
-      .map(sub => sub.user);
+      .map((sub) => sub.user);
 
     // get the message format
     console.log(`eventName: ${eventName}`);
@@ -353,7 +357,7 @@ async function runChangeNotify(channelName, key, value) {
       continue;
     }
 
-    let buildNotifyMsg = function(usersArray) {
+    let buildNotifyMsg = function (usersArray) {
       let msg = eventFormat;
       msg += usersArray.join(" ");
       msg = msg.trim();
@@ -567,7 +571,7 @@ async function importPingLists() {
           channel: channelName,
           user: username,
           event: eventName,
-          requiredValue: ""
+          requiredValue: "",
         });
       }
     }
@@ -615,27 +619,27 @@ async function notifyme(channelName, context, params) {
 
   // check if requesting generic sub, and user has specific subs
   let specificSubs = userSubscriptions
-    .filter(sub => sub.channel === channelName)
-    .filter(sub => sub.user === context["username"])
-    .filter(sub => sub.event === eventName)
-    .filter(sub => sub.requiredValue.length > 0);
+    .filter((sub) => sub.channel === channelName)
+    .filter((sub) => sub.user === context["username"])
+    .filter((sub) => sub.event === eventName)
+    .filter((sub) => sub.requiredValue.length > 0);
   if (requiredValue.length <= 0 && specificSubs.length > 0) {
     // user is requesting generic sub when they have specific ones on record.
     // remove all their subs and replace them with one generic one.
     let toRemove = userSubscriptions
-      .filter(sub => sub.channel === channelName)
-      .filter(sub => sub.user === context["username"])
-      .filter(sub => sub.event === eventName);
+      .filter((sub) => sub.channel === channelName)
+      .filter((sub) => sub.user === context["username"])
+      .filter((sub) => sub.event === eventName);
 
     userSubscriptions = userSubscriptions.filter(
-      sub => !toRemove.includes(sub)
+      (sub) => !toRemove.includes(sub)
     );
 
     userSubscriptions.push({
       channel: channelName,
       user: context["username"],
       event: eventName,
-      requiredValue: requiredValue
+      requiredValue: requiredValue,
     });
     await sendReply(
       channelName,
@@ -649,11 +653,11 @@ async function notifyme(channelName, context, params) {
 
   // check if a general subscription or this exact sub already exists
   let duplicateSubs = userSubscriptions
-    .filter(sub => sub.channel === channelName)
-    .filter(sub => sub.user === context["username"])
-    .filter(sub => sub.event === eventName)
+    .filter((sub) => sub.channel === channelName)
+    .filter((sub) => sub.user === context["username"])
+    .filter((sub) => sub.event === eventName)
     .filter(
-      sub =>
+      (sub) =>
         sub.requiredValue.length <= 0 ||
         sub.requiredValue.toUpperCase() === requiredValue.toUpperCase()
     );
@@ -714,7 +718,7 @@ async function notifyme(channelName, context, params) {
     channel: channelName,
     user: context["username"],
     event: eventName,
-    requiredValue: requiredValue
+    requiredValue: requiredValue,
   });
   await saveUserSubscriptions();
   if (requiredValue.length <= 0) {
@@ -776,10 +780,10 @@ async function removeme(channelName, context, params) {
   // if requiredValue is non-empty, only remove the subscription that matches that value.
 
   let toRemove = userSubscriptions
-    .filter(sub => sub.channel === channelName)
-    .filter(sub => sub.user === context["username"])
-    .filter(sub => sub.event === eventName)
-    .filter(sub => {
+    .filter((sub) => sub.channel === channelName)
+    .filter((sub) => sub.user === context["username"])
+    .filter((sub) => sub.event === eventName)
+    .filter((sub) => {
       if (requiredValue.length <= 0) {
         // no value passed to the function, match all
         return true;
@@ -810,7 +814,9 @@ async function removeme(channelName, context, params) {
     return;
   }
 
-  userSubscriptions = userSubscriptions.filter(sub => !toRemove.includes(sub));
+  userSubscriptions = userSubscriptions.filter(
+    (sub) => !toRemove.includes(sub)
+  );
 
   await saveUserSubscriptions();
 
@@ -826,10 +832,12 @@ async function removeme(channelName, context, params) {
 
 async function subscribed(channelName, context, params) {
   let activeSubscriptions = userSubscriptions
-    .filter(sub => sub.channel === channelName)
-    .filter(sub => sub.user === context["username"]);
+    .filter((sub) => sub.channel === channelName)
+    .filter((sub) => sub.user === context["username"]);
 
-  let eventNames = activeSubscriptions.map(sub => sub.event).filter(onlyUnique);
+  let eventNames = activeSubscriptions
+    .map((sub) => sub.event)
+    .filter(onlyUnique);
 
   let msgParts = [];
   for (let eventName of eventNames) {
@@ -839,7 +847,7 @@ async function subscribed(channelName, context, params) {
     }
 
     let eventSubscriptions = activeSubscriptions.filter(
-      sub => sub.event === eventName
+      (sub) => sub.event === eventName
     );
 
     if (!eventConfig.hasValue) {
@@ -960,11 +968,7 @@ async function bot(channelName, context, params) {
 }
 
 async function ping(channelName, context, params) {
-  await sendReply(
-    channelName,
-    context,
-    "Reporting for duty NaM 7"
-  );
+  await sendReply(channelName, context, "Reporting for duty NaM 7");
 }
 
 async function setData(channelName, context, params) {
@@ -1019,19 +1023,11 @@ async function tcbdebug(channelName, context, params) {
       result = await result;
     }
 
-    await sendReply(
-      channelName,
-      context,
-      JSON.stringify(result)
-    );
+    await sendReply(channelName, context, JSON.stringify(result));
     console.log(result);
   } catch (e) {
     console.log(e);
-    await sendReply(
-      channelName,
-      context,
-      `Error thrown: ${String(e)}`
-    );
+    await sendReply(channelName, context, `Error thrown: ${String(e)}`);
   }
 }
 
@@ -1040,11 +1036,7 @@ async function tcbquit(channelName, context, params) {
     return;
   }
 
-  await sendReply(
-    channelName,
-    context,
-    "MrDestructoid 🔫"
-  );
+  await sendReply(channelName, context, "MrDestructoid 🔫");
   process.exit(1);
 }
 
@@ -1103,7 +1095,7 @@ async function censorBanphrases(channelName, message) {
       method: "POST",
       json: true,
       uri: channelProtectionData["endpoint"],
-      formData: { message: String(message) }
+      formData: { message: String(message) },
     };
 
     try {
@@ -1173,7 +1165,11 @@ async function censorBanphrases(channelName, message) {
 }
 
 async function sendReply(channelName, context, message) {
-  if ((config.enabledChannels[channelName] ?? {}).protection?.whisperCommandResponses ?? false) {
+  if (
+    (config.enabledChannels[channelName] ?? {}).protection
+      ?.whisperCommandResponses ??
+    false
+  ) {
     await client.whisper(context["username"], message);
   } else {
     await sendMessage(channelName, `@${context["display-name"]}, ${message}`);
@@ -1216,8 +1212,8 @@ async function sendMessageUnsafe(channelName, message) {
   // lock for this channel
   // lock.enter does not take async functions. wrap the whole call inside yet
   // another async function and execute immediately.
-  await new Promise(resolve => {
-    lock.enter(token => {
+  await new Promise((resolve) => {
+    lock.enter((token) => {
       console.log(`locked ${channelName}`);
       (async () => {
         let lastEgressMessage = lastEgressMessages[channelName];
@@ -1291,19 +1287,19 @@ if exists == 0 then
         return 1
 else
         return 0
-end`
+end`,
 });
 
 const commandCooldowns = {
   ping: {
     user: 2 * 1000,
-    global: 1 * 1000
-  }
+    global: 1 * 1000,
+  },
 };
 
 const defaultCooldowns = {
   user: 5 * 1000,
-  global: 2 * 1000
+  global: 2 * 1000,
 };
 
 async function onMessageHandler(target, context, msg, self) {

@@ -1,23 +1,23 @@
-'use strict';
+"use strict";
 
-const secrets = require('./secrets');
+const secrets = require("./secrets");
 
 const opts = {
   connection: {
-    secure: true
+    secure: true,
   },
   identity: {
     username: "alazydroid",
-    password: secrets.ircPassword
+    password: secrets.ircPassword,
   },
   channels: [
     "#alazymeme",
     "#alazydroid"
-  ]
+  ],
 };
 
 // Valid commands start with:
-const commandPrefix = '!';
+const commandPrefix = "!";
 
 // Twitch API Client ID
 const krakenClientId = secrets.krakenClientId;
@@ -48,10 +48,10 @@ const modChannels = ["alazymeme", "alazydroid"];
 
 // this character is injected into some channels where the broadcaster asked to not get pinged
 // by notifies in his channel
-const invisibleAntiPingCharacter = '\u{E0000}';
+const invisibleAntiPingCharacter = "\u{E0000}";
 
 function obfuscateName(str) {
-    return [...str].join(invisibleAntiPingCharacter);
+  return [...str].join(invisibleAntiPingCharacter);
 }
 
 const globalLengthLimit = 480;
@@ -90,13 +90,13 @@ let enabledChannels = {
 opts.channels.push(...Object.keys(enabledChannels));
 
 module.exports = {
-    opts: opts,
-    commandPrefix: commandPrefix,
-    krakenClientId: krakenClientId,
-    administrators: administrators,
-    startupChannel: startupChannel,
-    onlinePrintChannel: onlinePrintChannel,
-    modChannels: modChannels,
-    enabledChannels: enabledChannels,
-    globalLengthLimit: globalLengthLimit
+  opts: opts,
+  commandPrefix: commandPrefix,
+  krakenClientId: krakenClientId,
+  administrators: administrators,
+  startupChannel: startupChannel,
+  onlinePrintChannel: onlinePrintChannel,
+  modChannels: modChannels,
+  enabledChannels: enabledChannels,
+  globalLengthLimit: globalLengthLimit,
 };
