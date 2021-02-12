@@ -8,11 +8,11 @@ yarn-error.log*
 
 ### Yarn stuff
 .yarn/*
-!.yarn/cache
 !.yarn/releases
 !.yarn/plugins
 !.yarn/sdks
 !.yarn/versions
+.pnp.*
 
 # Runtime data
 pids
