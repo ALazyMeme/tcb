@@ -22,6 +22,7 @@
     "ioredis": "^4.19.4",
     "node-async-locks": "^1.0.1",
     "node-persist": "^3.1.0",
+    "request": "^2.88.2",
     "request-promise": "^4.2.6",
     "tmi.js": "^1.5.0"
   },
