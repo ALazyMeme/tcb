@@ -62,9 +62,9 @@ let enabledChannels = {
     formats: {
       title: 'PagChomp NEW TITLE! PagChomp 👉 $VALUE$ 👉 ',
       game: 'PagChomp NEW GAME! PagChomp 👉 $VALUE$ 👉 ',
-      live: `DinkDonk ${obfuscateName('CYACHARLIE')} HAS GONE LIVE! DinkDonk 👉 `,
+      live: `DinkDonk CYACHARLIE HAS GONE LIVE! DinkDonk 👉 `,
       offline:
-        `cyachaSlam ${obfuscateName('CYACHARLIE')} HAS GONE OFFLINE! cyachaSlam 👉 `
+        `cyachaSlam CYACHARLIE HAS GONE OFFLINE! cyachaSlam 👉 `
     },
     protection: {
       endpoint: 'https://cyacharlie.feelsokaybot.com/api/v1/banphrases/test',
