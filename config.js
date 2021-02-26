@@ -7,12 +7,12 @@ const opts = {
     secure: true,
   },
   identity: {
-    username: "alazydroid",
+    username: "zorowoobot",
     password: secrets.ircPassword,
   },
   channels: [
-    "#alazymeme",
-    "#alazydroid"
+    "#zoro491",
+    "#zorowoobot"
   ],
 };
 
@@ -27,15 +27,15 @@ const krakenClientId = secrets.krakenClientId;
 let administrators = ["alazymeme"];
 
 // The bot will post a "I am running"-style message to this channel on startup.
-const startupChannel = "alazymeme";
+const startupChannel = "zoro491";
 
 // if a channel is offline-only protected, and a change occurs, the bot prints
 // to this channel instead of the channel the change occurred in.
-const onlinePrintChannel = "alazydroid";
+const onlinePrintChannel = "zorowoobot";
 
 // list of channel names where the bot is not limited to the global 1.2 second
 // slowmode (channels it is broadcaster, moderator or VIP in)
-const modChannels = ["alazymeme", "alazydroid"];
+const modChannels = ["zoro491", "zorowoobot"];
 
 // tip: use !userid <usernames...> command in the #pajlada chat to get user IDs
 // add the "protection" object to enable pajbot banphrase checking protection
@@ -57,17 +57,16 @@ function obfuscateName(str) {
 const globalLengthLimit = 480;
 
 let enabledChannels = {
-  alazymeme: {
-    id: 103973901,
+  zoro491: {
+    id: 91501224,
     formats: {
-      title: 'POGGERS NEW TITLE! POGGERS 👉 $VALUE$ 👉 ',
-      game: 'POGGERS NEW GAME! POGGERS 👉 $VALUE$ 👉 ',
-      live: `KKrikool GuitarTime ${obfuscateName('ALAZYMEME')} HAS GONE LIVE! KKrikool GuitarTime 👉 `,
-      offline:
-        `FeelsGoodMan TeaTime ${obfuscateName('ALAZYMEME')} HAS GONE OFFLINE! FeelsGoodMan TeaTime 👉 `
+      title: 'TriHard NEW TITLE! TriHard 👉 $VALUE$ 👉 ',
+      game: 'TriHard NEW GAME! TriHard 👉 $VALUE$ 👉 ',
+      live: `TriHard ZORO491 HAS GONE LIVE! TriHard 👉 `,
+      offline: `TriHard ZORO491 HAS GONE OFFLINE! TriHard 👉 `
     },
     protection: {
-      endpoint: 'https://bot.alazymeme.com/api/v1/banphrases/test',
+      endpoint: 'https://zoro491.feelsokaybot.com/api/v1/banphrases/test',
       disabledCommands: ['game', 'title', 'islive']
     },
   }
