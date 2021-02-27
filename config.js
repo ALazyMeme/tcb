@@ -7,12 +7,12 @@ const opts = {
     secure: true,
   },
   identity: {
-    username: "alazydroid",
+    username: "pppoofbot",
     password: secrets.ircPassword,
   },
   channels: [
-    "#alazymeme",
-    "#alazydroid"
+    "#emergencycurse",
+    "#pppoofbot"
   ],
 };
 
@@ -27,15 +27,15 @@ const krakenClientId = secrets.krakenClientId;
 let administrators = ["alazymeme"];
 
 // The bot will post a "I am running"-style message to this channel on startup.
-const startupChannel = "alazymeme";
+const startupChannel = "emergencycurse";
 
 // if a channel is offline-only protected, and a change occurs, the bot prints
 // to this channel instead of the channel the change occurred in.
-const onlinePrintChannel = "alazydroid";
+const onlinePrintChannel = "pppoofbot";
 
 // list of channel names where the bot is not limited to the global 1.2 second
 // slowmode (channels it is broadcaster, moderator or VIP in)
-const modChannels = ["alazymeme", "alazydroid"];
+const modChannels = ["pppoofbot", "emergencycurse"];
 
 // tip: use !userid <usernames...> command in the #pajlada chat to get user IDs
 // add the "protection" object to enable pajbot banphrase checking protection
@@ -57,17 +57,17 @@ function obfuscateName(str) {
 const globalLengthLimit = 480;
 
 let enabledChannels = {
-  alazymeme: {
-    id: 103973901,
+  emergencycurse: {
+    id: 76943040,
     formats: {
-      title: 'POGGERS NEW TITLE! POGGERS 👉 $VALUE$ 👉 ',
-      game: 'POGGERS NEW GAME! POGGERS 👉 $VALUE$ 👉 ',
-      live: `KKrikool GuitarTime ${obfuscateName('ALAZYMEME')} HAS GONE LIVE! KKrikool GuitarTime 👉 `,
+      title: 'PauseChamp NEW TITLE! PauseChamp 👉 $VALUE$ 👉 ',
+      game: 'PauseChamp NEW GAME! PauseChamp 👉 $VALUE$ 👉 ',
+      live: `DinkDonk EMERGENCYCURSE HAS GONE LIVE! DinkDonk 👉 `,
       offline:
-        `FeelsGoodMan TeaTime ${obfuscateName('ALAZYMEME')} HAS GONE OFFLINE! FeelsGoodMan TeaTime 👉 `
+        `Peepo TeaTime EMERGENCYCURSE HAS GONE OFFLINE! Peepo TeaTime 👉 `
     },
     protection: {
-      endpoint: 'https://bot.alazymeme.com/api/v1/banphrases/test',
+      endpoint: 'https://emergencycurse.feelsokaybot.com/api/v1/banphrases/test',
       disabledCommands: ['game', 'title', 'islive']
     },
   }
