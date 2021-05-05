@@ -60,11 +60,10 @@ let enabledChannels = {
   hyrutv: {
     id: 171892065,
     formats: {
-      title: 'POGGERS NEW TITLE! POGGERS 👉 $VALUE$ 👉 ',
-      game: 'POGGERS NEW GAME! POGGERS 👉 $VALUE$ 👉 ',
-      live: `KKrikool GuitarTime ${obfuscateName('ALAZYMEME')} HAS GONE LIVE! KKrikool GuitarTime 👉 `,
-      offline:
-        `FeelsGoodMan TeaTime ${obfuscateName('ALAZYMEME')} HAS GONE OFFLINE! FeelsGoodMan TeaTime 👉 `
+      title: 'HYPERS NEW TITLE! HYPERS 👉 $VALUE$ 👉 ',
+      game: 'GAMING NEW GAME! GAMING 👉 $VALUE$ 👉 ',
+      live: `POGGERS HYRUTV HAS GONE LIVE! POGGERS 👉 `,
+      offline: `peepoSad HYRUTV HAS GONE OFFLINE! peepoSad 👉 `
     },
     protection: {
       endpoint: 'https://bot.hyru.tv/api/v1/banphrases/test',
