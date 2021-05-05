@@ -31,11 +31,11 @@ const startupChannel = "alazymeme";
 
 // if a channel is offline-only protected, and a change occurs, the bot prints
 // to this channel instead of the channel the change occurred in.
-const onlinePrintChannel = "alazydroid";
+const onlinePrintChannel = "hyrubot";
 
 // list of channel names where the bot is not limited to the global 1.2 second
 // slowmode (channels it is broadcaster, moderator or VIP in)
-const modChannels = ["alazymeme", "alazydroid"];
+const modChannels = ["hyrubot", "hyrutv"];
 
 // tip: use !userid <usernames...> command in the #pajlada chat to get user IDs
 // add the "protection" object to enable pajbot banphrase checking protection
@@ -57,8 +57,8 @@ function obfuscateName(str) {
 const globalLengthLimit = 480;
 
 let enabledChannels = {
-  alazymeme: {
-    id: 103973901,
+  hyrutv: {
+    id: 171892065,
     formats: {
       title: 'POGGERS NEW TITLE! POGGERS 👉 $VALUE$ 👉 ',
       game: 'POGGERS NEW GAME! POGGERS 👉 $VALUE$ 👉 ',
@@ -67,7 +67,7 @@ let enabledChannels = {
         `FeelsGoodMan TeaTime ${obfuscateName('ALAZYMEME')} HAS GONE OFFLINE! FeelsGoodMan TeaTime 👉 `
     },
     protection: {
-      endpoint: 'https://bot.alazymeme.com/api/v1/banphrases/test',
+      endpoint: 'https://bot.hyru.tv/api/v1/banphrases/test',
       disabledCommands: ['game', 'title', 'islive']
     },
   }
