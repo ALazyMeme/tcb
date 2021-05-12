@@ -27,7 +27,7 @@ const krakenClientId = secrets.krakenClientId;
 let administrators = ["alazymeme"];
 
 // The bot will post a "I am running"-style message to this channel on startup.
-const startupChannel = "hyrutv";
+const startupChannel = "hyru____";
 
 // if a channel is offline-only protected, and a change occurs, the bot prints
 // to this channel instead of the channel the change occurred in.
@@ -35,7 +35,7 @@ const onlinePrintChannel = "hyrubot";
 
 // list of channel names where the bot is not limited to the global 1.2 second
 // slowmode (channels it is broadcaster, moderator or VIP in)
-const modChannels = ["hyrubot", "hyrutv"];
+const modChannels = ["hyrubot", "hyru____"];
 
 // tip: use !userid <usernames...> command in the #pajlada chat to get user IDs
 // add the "protection" object to enable pajbot banphrase checking protection
@@ -57,7 +57,7 @@ function obfuscateName(str) {
 const globalLengthLimit = 480;
 
 let enabledChannels = {
-  hyrutv: {
+  hyru____: {
     id: 171892065,
     formats: {
       title: 'HYPERS NEW TITLE! HYPERS 👉 $VALUE$ 👉 ',
