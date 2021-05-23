@@ -7,12 +7,12 @@ const opts = {
     secure: true,
   },
   identity: {
-    username: "alazydroid",
+    username: "hyrubot",
     password: secrets.ircPassword,
   },
   channels: [
-    "#alazymeme",
-    "#alazydroid"
+    "#hyru____",
+    "#hyrubot"
   ],
 };
 
