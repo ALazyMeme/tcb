@@ -70,6 +70,20 @@ let enabledChannels = {
       endpoint: 'https://bot.alazymeme.com/api/v1/banphrases/test',
       disabledCommands: ['game', 'title', 'islive']
     },
+  },
+  Pepto__Bismol: {
+    id: 50495856,
+    formats: {
+      title: 'PagMan NEW TITLE! PagMan 👉 $VALUE$ 👉 ',
+      game: 'PagMan NEW GAME! PagMan 👉 $VALUE$ 👉 ',
+      live: `PagMan PEPTO__BISMOL HAS GONE LIVE! PagMan 👉 `,
+      offline:
+        `FeelsBadMan PEPTO__BISMOL HAS GONE OFFLINE! FeelsBadMan 👉 `
+    },
+    protection: {
+      endpoint: 'https://pepto.magichack.xyz/api/v1/banphrases/test',
+      disabledCommands: ['game', 'title', 'islive']
+    },
   }
 };
 
