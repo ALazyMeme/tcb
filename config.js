@@ -71,7 +71,7 @@ let enabledChannels = {
       disabledCommands: ['game', 'title', 'islive']
     },
   },
-  Pepto__Bismol: {
+  pepto__bismol: {
     id: 50495856,
     formats: {
       title: 'PagMan NEW TITLE! PagMan 👉 $VALUE$ 👉 ',
