@@ -35,7 +35,7 @@ const onlinePrintChannel = "alazydroid";
 
 // list of channel names where the bot is not limited to the global 1.2 second
 // slowmode (channels it is broadcaster, moderator or VIP in)
-const modChannels = ["alazymeme", "alazydroid"];
+const modChannels = ["alazymeme", "alazydroid", "pepto__bismol"];
 
 // tip: use !userid <usernames...> command in the #pajlada chat to get user IDs
 // add the "protection" object to enable pajbot banphrase checking protection
