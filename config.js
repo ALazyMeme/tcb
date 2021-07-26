@@ -114,6 +114,15 @@ let enabledChannels = {
       disabledCommands: ['islive', 'game', 'title', 'events']
     },
   },
+  alicksu: {
+    id: 88928455,
+    formats: {
+      title: "PogChamp NEW TITLE! PogChamp 👉 $VALUE$ 👉 ",
+      game: "PogChamp NEW GAME! PogChamp 👉 $VALUE$ 👉 ",
+      live: "PogChamp 👉 alicksU has gone live! PogChamp 👉 ",
+      offline: "FeelsBadMan alicksU has gone offline FeelsBadMan 👉 ",
+    },
+  },
 };
 
 opts.channels.push(...Object.keys(enabledChannels));
