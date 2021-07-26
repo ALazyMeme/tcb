@@ -111,7 +111,7 @@ let enabledChannels = {
       endpoint: "https://forsen.tv/api/v1/banphrases/test",
       pajbotLinkFilter: true,
       offlineOnly: true,
-      disabledCommands: ['islive', 'game', 'title']
+      disabledCommands: ['islive', 'game', 'title', 'events']
     },
   },
 };
