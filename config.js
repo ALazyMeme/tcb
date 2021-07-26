@@ -84,7 +84,20 @@ let enabledChannels = {
       endpoint: 'https://pepto.magichack.xyz/api/v1/banphrases/test',
       disabledCommands: ['game', 'title', 'islive']
     },
-  }
+  },
+  nymn: {
+    id: 62300805,
+    formats: {
+      title: "peepoPog NEW TITLE! peepoPog 👉 $VALUE$ 👉 ",
+      game: "peepoPog NEW GAME! peepoPog 👉 $VALUE$ 👉 ",
+      live: "peepoPog NYMN HAS GONE LIVE! peepoPog 👉 ",
+      offline:
+        "FeelsBadMan TeaTime NYMN HAS GONE OFFLINE! FeelsBadMan TeaTime 👉 ",
+    },
+    protection: {
+      endpoint: "https://nymn.pajbot.com/api/v1/banphrases/test",
+    },
+  },
 };
 
 opts.channels.push(...Object.keys(enabledChannels));
