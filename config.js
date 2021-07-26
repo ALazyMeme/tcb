@@ -96,6 +96,7 @@ let enabledChannels = {
     },
     protection: {
       endpoint: "https://nymn.pajbot.com/api/v1/banphrases/test",
+      disabledCommands: ['islive']
     },
   },
 };
