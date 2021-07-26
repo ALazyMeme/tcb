@@ -7,12 +7,12 @@ const opts = {
     secure: true,
   },
   identity: {
-    username: "alazydroid",
+    username: "dankfeelsbot",
     password: secrets.ircPassword,
   },
   channels: [
     "#alazymeme",
-    "#alazydroid"
+    "#dankfeelsbot"
   ],
 };
 
@@ -31,11 +31,11 @@ const startupChannel = "alazymeme";
 
 // if a channel is offline-only protected, and a change occurs, the bot prints
 // to this channel instead of the channel the change occurred in.
-const onlinePrintChannel = "alazydroid";
+const onlinePrintChannel = "dankfeelsbot";
 
 // list of channel names where the bot is not limited to the global 1.2 second
 // slowmode (channels it is broadcaster, moderator or VIP in)
-const modChannels = ["alazymeme", "alazydroid", "pepto__bismol"];
+const modChannels = ["alazymeme", "dankfeelsbot"];
 
 // tip: use !userid <usernames...> command in the #pajlada chat to get user IDs
 // add the "protection" object to enable pajbot banphrase checking protection
