@@ -99,6 +99,21 @@ let enabledChannels = {
       disabledCommands: ['islive']
     },
   },
+  forsen: {
+    id: 22484632,
+    formats: {
+      title: "PagChomp NEW TITLE! PagChomp 👉 $VALUE$ 👉 ",
+      game: "PagChomp NEW GAME! PagChomp 👉 $VALUE$ 👉 ",
+      live: "KKool GuitarTime FORSEN HAS GONE LIVE! KKool GuitarTime 👉 ",
+      offline: "Okayeg TeaTime FORSEN HAS GONE OFFLINE! Okayeg TeaTime 👉 ",
+    },
+    protection: {
+      endpoint: "https://forsen.tv/api/v1/banphrases/test",
+      pajbotLinkFilter: true,
+      offlineOnly: true,
+      disabledCommands: ['islive', 'game', 'title']
+    },
+  },
 };
 
 opts.channels.push(...Object.keys(enabledChannels));
