@@ -11,7 +11,7 @@ const opts = {
     password: secrets.ircPassword,
   },
   channels: [
-    "#hyru____",
+    "#hyruverse",
     "#hyrubot"
   ],
 };
@@ -27,7 +27,7 @@ const krakenClientId = secrets.krakenClientId;
 let administrators = ["alazymeme"];
 
 // The bot will post a "I am running"-style message to this channel on startup.
-const startupChannel = "hyru____";
+const startupChannel = "hyruverse";
 
 // if a channel is offline-only protected, and a change occurs, the bot prints
 // to this channel instead of the channel the change occurred in.
@@ -35,7 +35,7 @@ const onlinePrintChannel = "hyrubot";
 
 // list of channel names where the bot is not limited to the global 1.2 second
 // slowmode (channels it is broadcaster, moderator or VIP in)
-const modChannels = ["hyrubot", "hyru____"];
+const modChannels = ["hyrubot", "hyruverse"];
 
 // tip: use !userid <usernames...> command in the #pajlada chat to get user IDs
 // add the "protection" object to enable pajbot banphrase checking protection
@@ -57,13 +57,13 @@ function obfuscateName(str) {
 const globalLengthLimit = 480;
 
 let enabledChannels = {
-  hyru____: {
+  hyruverse: {
     id: 171892065,
     formats: {
       title: 'HYPERS NEW TITLE! HYPERS 👉 $VALUE$ 👉 ',
       game: 'GAMING NEW GAME! GAMING 👉 $VALUE$ 👉 ',
       live: `POGGERS HYRUTV HAS GONE LIVE! POGGERS 👉 `,
-      offline: `peepoSad HYRUTV HAS GONE OFFLINE! peepoSad 👉 `
+      offline: `peepoSad HYRUVERSE HAS GONE OFFLINE! peepoSad 👉 `
     },
     protection: {
       endpoint: 'https://bot.hyru.tv/api/v1/banphrases/test',
