@@ -12,7 +12,8 @@ const opts = {
   },
   channels: [
     "#zoro491",
-    "#zorowoobot"
+    "#zorowoobot",
+    "#feelsokaybot"
   ],
 };
 
