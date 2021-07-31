@@ -12,7 +12,8 @@ const opts = {
   },
   channels: [
     "#cyacharlie",
-    "#pepegawithabot"
+    "#pepegawithabot",
+    "#feelsokaybot"
   ],
 };
 
@@ -27,7 +28,7 @@ const krakenClientId = secrets.krakenClientId;
 let administrators = ["alazymeme"];
 
 // The bot will post a "I am running"-style message to this channel on startup.
-const startupChannel = "pepegawithabot";
+const startupChannel = "feelsokaybot";
 
 // if a channel is offline-only protected, and a change occurs, the bot prints
 // to this channel instead of the channel the change occurred in.
@@ -35,7 +36,7 @@ const onlinePrintChannel = "pepegawithabot";
 
 // list of channel names where the bot is not limited to the global 1.2 second
 // slowmode (channels it is broadcaster, moderator or VIP in)
-const modChannels = ["pepegawithabot", "cyacharlie"];
+const modChannels = ["pepegawithabot", "cyacharlie", "feelsokaybot"];
 
 // tip: use !userid <usernames...> command in the #pajlada chat to get user IDs
 // add the "protection" object to enable pajbot banphrase checking protection
