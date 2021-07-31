@@ -12,7 +12,8 @@ const opts = {
   },
   channels: [
     "#alazymeme",
-    "#dankfeelsbot"
+    "#dankfeelsbot",
+    "#feelsokaybot"
   ],
 };
 
