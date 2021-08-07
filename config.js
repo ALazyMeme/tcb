@@ -95,6 +95,16 @@ let enabledChannels = {
       offline: "FeelsBadMan alicksU has gone offline FeelsBadMan 👉 ",
     },
   },
+  typeopessimist: {
+    id: 188522713,
+    formats: {
+      title: 'PagMan NEW TITLE! PagMan 👉 $VALUE$ 👉 ',
+      game: 'PagMan NEW GAME! PagMan 👉 $VALUE$ 👉 ',
+      live: `PagMan PEPTO__BISMOL HAS GONE LIVE! PagMan 👉 `,
+      offline:
+        `FeelsBadMan PEPTO__BISMOL HAS GONE OFFLINE! FeelsBadMan 👉 `
+    },
+  },
 };
 
 opts.channels.push(...Object.keys(enabledChannels));
