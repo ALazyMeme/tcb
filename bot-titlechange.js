@@ -968,7 +968,7 @@ async function bot(channelName, context, params) {
 }
 
 async function ping(channelName, context, params) {
-  await sendReply(channelName, context, "Reporting for duty NaM 7");
+  await sendReply(channelName, context, "hi alazymDank");
 }
 
 async function setData(channelName, context, params) {
