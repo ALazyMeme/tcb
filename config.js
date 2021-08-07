@@ -100,9 +100,9 @@ let enabledChannels = {
     formats: {
       title: 'PagMan NEW TITLE! PagMan 👉 $VALUE$ 👉 ',
       game: 'PagMan NEW GAME! PagMan 👉 $VALUE$ 👉 ',
-      live: `PagMan PEPTO__BISMOL HAS GONE LIVE! PagMan 👉 `,
+      live: `PagMan TYPEOPESSIMIST HAS GONE LIVE! PagMan 👉 `,
       offline:
-        `FeelsBadMan PEPTO__BISMOL HAS GONE OFFLINE! FeelsBadMan 👉 `
+        `FeelsBadMan TYPEOPESSIMIST HAS GONE OFFLINE! FeelsBadMan 👉 `
     },
   },
 };
