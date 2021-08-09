@@ -105,6 +105,16 @@ let enabledChannels = {
         `FeelsBadMan TYPEOPESSIMIST HAS GONE OFFLINE! FeelsBadMan 👉 `
     },
   },
+  yung_randd: {
+    id: 225912010,
+    formats: {
+      title: 'PauseMan NEW TITLE! PauseMan 👉 $VALUE$ 👉 ',
+      game: 'PauseMan NEW GAME! PauseMan 👉 $VALUE$ 👉 ',
+      live: `PagMan YUNG_RANDD HAS GONE LIVE! PagMan 👉 `,
+      offline:
+        `FeelsBadMan YUNG_RANDD HAS GONE OFFLINE! FeelsBadMan 👉 `
+    },
+  },
 };
 
 opts.channels.push(...Object.keys(enabledChannels));
