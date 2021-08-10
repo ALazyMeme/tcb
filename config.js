@@ -115,6 +115,16 @@ let enabledChannels = {
         `FeelsBadMan YUNG_RANDD HAS GONE OFFLINE! FeelsBadMan 👉 `
     },
   },
+  srcookiemonstr: {
+    id: 104060952,
+    formats: {
+      title: 'PauseMan NEW TITLE! PauseMan 👉 $VALUE$ 👉 ',
+      game: 'PauseMan NEW GAME! PauseMan 👉 $VALUE$ 👉 ',
+      live: `PagMan SRCOOKIEMONSTR HAS GONE LIVE! PagMan 👉 `,
+      offline:
+        `FeelsBadMan SRCOOKIEMONSTR HAS GONE OFFLINE! FeelsBadMan 👉 `
+    },
+  },
 };
 
 opts.channels.push(...Object.keys(enabledChannels));
