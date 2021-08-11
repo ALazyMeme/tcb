@@ -125,6 +125,16 @@ let enabledChannels = {
         `FeelsBadMan SRCOOKIEMONSTR HAS GONE OFFLINE! FeelsBadMan 👉 `
     },
   },
+  zealryth: {
+    id: 514210392,
+    formats: {
+      title: 'PagMan NEW TITLE! PagMan 👉 $VALUE$ 👉 ',
+      game: 'PagMan NEW GAME! PagMan 👉 $VALUE$ 👉 ',
+      live: `PagMan ZEALRYTH HAS GONE LIVE! PagMan 👉 `,
+      offline:
+        `FeelsBadMan ZEALRYTH HAS GONE OFFLINE! FeelsBadMan 👉 `
+    },
+  },
 };
 
 opts.channels.push(...Object.keys(enabledChannels));
