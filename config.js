@@ -135,6 +135,16 @@ let enabledChannels = {
         `FeelsBadMan ZEALRYTH HAS GONE OFFLINE! FeelsBadMan 👉 `
     },
   },
+  callmeduckface: {
+    id: 486582782,
+    formats: {
+      title: 'PogChamp NEW TITLE! PogChamp 👉 $VALUE$ 👉 ',
+      game: 'PogChamp NEW GAME! PogChamp 👉 $VALUE$ 👉 ',
+      live: `LETSGO CALLMEDUCKFACE HAS GONE LIVE! LETSGO 👉 `,
+      offline:
+        `OMEGALULiguess CALLMEDUCKFACE HAS GONE OFFLINE! OMEGALULiguess 👉 `
+    },
+  },
 };
 
 opts.channels.push(...Object.keys(enabledChannels));
