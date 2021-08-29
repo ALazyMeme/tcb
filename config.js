@@ -65,7 +65,7 @@ let enabledChannels = {
     },
     protection: {
       endpoint: 'https://bot.alazymeme.com/api/v1/banphrases/test',
-      disabledCommands: ['game', 'title', 'islive']
+      disabledCommands: ['game', 'title']
     },
   },
   pepto__bismol: {
@@ -78,7 +78,7 @@ let enabledChannels = {
     },
     protection: {
       endpoint: 'https://pepto.magichack.xyz/api/v1/banphrases/test',
-      disabledCommands: ['game', 'title', 'islive']
+      disabledCommands: ['game', 'title']
     },
   },
   alicksu: {
