@@ -10,11 +10,7 @@ const opts = {
     username: "dankfeelsbot",
     password: secrets.ircPassword,
   },
-  channels: [
-    "#alazymeme",
-    "#dankfeelsbot",
-    "#feelsokaybot"
-  ],
+  channels: [],
 };
 
 // Valid commands start with:
@@ -78,8 +74,7 @@ let enabledChannels = {
       title: 'PagMan NEW TITLE! PagMan 👉 $VALUE$ 👉 ',
       game: 'PagMan NEW GAME! PagMan 👉 $VALUE$ 👉 ',
       live: `PagMan PEPTO__BISMOL HAS GONE LIVE! PagMan 👉 `,
-      offline:
-        `FeelsBadMan PEPTO__BISMOL HAS GONE OFFLINE! FeelsBadMan 👉 `
+      offline: `FeelsBadMan PEPTO__BISMOL HAS GONE OFFLINE! FeelsBadMan 👉 `
     },
     protection: {
       endpoint: 'https://pepto.magichack.xyz/api/v1/banphrases/test',
@@ -111,8 +106,7 @@ let enabledChannels = {
       title: 'PauseMan NEW TITLE! PauseMan 👉 $VALUE$ 👉 ',
       game: 'PauseMan NEW GAME! PauseMan 👉 $VALUE$ 👉 ',
       live: `PagMan YUNG_RANDD HAS GONE LIVE! PagMan 👉 `,
-      offline:
-        `FeelsBadMan YUNG_RANDD HAS GONE OFFLINE! FeelsBadMan 👉 `
+      offline: `FeelsBadMan YUNG_RANDD HAS GONE OFFLINE! FeelsBadMan 👉 `
     },
   },
   srcookiemonstr: {
@@ -131,8 +125,7 @@ let enabledChannels = {
       title: 'PagMan NEW TITLE! PagMan 👉 $VALUE$ 👉 ',
       game: 'PagMan NEW GAME! PagMan 👉 $VALUE$ 👉 ',
       live: `PagMan ZEALRYTH HAS GONE LIVE! PagMan 👉 `,
-      offline:
-        `FeelsBadMan ZEALRYTH HAS GONE OFFLINE! FeelsBadMan 👉 `
+      offline: `FeelsBadMan ZEALRYTH HAS GONE OFFLINE! FeelsBadMan 👉 `
     },
   },
   callmeduckface: {
