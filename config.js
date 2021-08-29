@@ -138,6 +138,15 @@ let enabledChannels = {
         `OMEGALULiguess CALLMEDUCKFACE HAS GONE OFFLINE! OMEGALULiguess 👉 `
     },
   },
+  yungkuma: {
+    id: 109348611,
+    formats: {
+      title: 'PagMan NEW TITLE! PagMan 👉 $VALUE$ 👉 ',
+      game: 'PagMan NEW GAME! PagMan 👉 $VALUE$ 👉 ',
+      live: `DinkDonk YUNGKUMA HAS GONE LIVE! DinkDonk 👉 `,
+      offline: `DonkLeave YUNGKUMA HAS GONE OFFLINE! DonkLeave 👉 `
+    },
+  },
 };
 
 opts.channels.push(...Object.keys(enabledChannels));
