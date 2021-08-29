@@ -108,6 +108,9 @@ let enabledChannels = {
       live: `PagMan YUNG_RANDD HAS GONE LIVE! PagMan 👉 `,
       offline: `FeelsBadMan YUNG_RANDD HAS GONE OFFLINE! FeelsBadMan 👉 `
     },
+    protection: {
+      disabledCommands: ['game', 'title']
+    },
   },
   srcookiemonstr: {
     id: 104060952,
