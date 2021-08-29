@@ -10,7 +10,10 @@ const opts = {
     username: "dankfeelsbot",
     password: secrets.ircPassword,
   },
-  channels: [],
+  channels: [
+    "feelsokaybot",
+    "dankfeelsbot"
+  ],
 };
 
 // Valid commands start with:
