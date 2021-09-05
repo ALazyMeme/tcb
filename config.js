@@ -35,7 +35,7 @@ const onlinePrintChannel = "dankfeelsbot";
 
 // list of channel names where the bot is not limited to the global 1.2 second
 // slowmode (channels it is broadcaster, moderator or VIP in)
-const modChannels = ["alazymeme", "dankfeelsbot", "feelsokaybot", "srcookiemonstr"];
+const modChannels = ["alazymeme", "dankfeelsbot", "feelsokaybot", "srcookiemonstr", "ryuuiro"];
 
 // tip: use !userid <usernames...> command in the #pajlada chat to get user IDs
 // add the "protection" object to enable pajbot banphrase checking protection
@@ -151,6 +151,15 @@ let enabledChannels = {
       game: 'PagMan NEW GAME! PagMan 👉 $VALUE$ 👉 ',
       live: `DinkDonk YUNGKUMA HAS GONE LIVE! DinkDonk 👉 `,
       offline: `DonkLeave YUNGKUMA HAS GONE OFFLINE! DonkLeave 👉 `
+    },
+  },
+  ryuuiro: {
+    id: 544027567,
+    formats: {
+      title: 'PauseChamp NEW TITLE! PauseChamp 👉 $VALUE$ 👉 ',
+      game: 'PauseChamp NEW GAME! PauseChamp 👉 $VALUE$ 👉 ',
+      live: `forsenParty RYUUIRO HAS GONE LIVE! forsenParty 👉 `,
+      offline: `SadPepeDank RYUUIRO HAS GONE OFFLINE! SadPepeDank 👉 `
     },
   },
 };
