@@ -162,6 +162,15 @@ let enabledChannels = {
       offline: `SadPepeDank RYUUIRO HAS GONE OFFLINE! SadPepeDank 👉 `
     },
   },
+  howardhoward: {
+    id: 152410092,
+    formats: {
+      title: 'PauseChamp NEW TITLE! PauseChamp 👉 $VALUE$ 👉 ',
+      game: 'PauseChamp NEW GAME! PauseChamp 👉 $VALUE$ 👉 ',
+      live: `PagMan HOWARDHOWARD HAS GONE LIVE! PagMan 👉 `,
+      offline: `Sadge HOWARDHOWARD HAS GONE OFFLINE! Sadge 👉 `
+    },
+  },
 };
 
 opts.channels.push(...Object.keys(enabledChannels));
