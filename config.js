@@ -171,6 +171,15 @@ let enabledChannels = {
       offline: `Sadge HOWARDHOWARD HAS GONE OFFLINE! Sadge 👉 `
     },
   },
+  theshadows1337: {
+    id: 157293950,
+    formats: {
+      title: 'Wokeg NEW TITLE! Wokeg 👉 $VALUE$ 👉 ',
+      game: 'Wokeg NEW GAME! Wokeg 👉 $VALUE$ 👉 ',
+      live: `Bruh THESHADOWS1337 HAS GONE LIVE! Bruh 👉 `,
+      offline: `TriSad THESHADOWS1337 HAS GONE OFFLINE! TriSad 👉 `
+    },
+  },
 };
 
 opts.channels.push(...Object.keys(enabledChannels));
