@@ -180,6 +180,15 @@ let enabledChannels = {
       offline: `TriSad THESHADOWS1337 HAS GONE OFFLINE! TriSad 👉 `
     },
   },
+  skalmanleif: {
+    id: 189554747,
+    formats: {
+      title: 'PogChamp NEW TITLE! PogChamp 👉 $VALUE$ 👉 ',
+      game: 'PogChamp NEW GAME! PogChamp 👉 $VALUE$ 👉 ',
+      live: `PogChamp SKALEMANLEIF HAS GONE LIVE! PogChamp 👉 `,
+      offline: `FeelsBadMan SKALEMANLEIF HAS GONE OFFLINE! FeelsBadMan 👉 `
+    },
+  },
 };
 
 opts.channels.push(...Object.keys(enabledChannels));
