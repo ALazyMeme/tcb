@@ -189,6 +189,15 @@ let enabledChannels = {
       offline: `FeelsBadMan SKALEMANLEIF HAS GONE OFFLINE! FeelsBadMan 👉 `
     },
   },
+  eazylemnsqeezy: {
+    id: 78869520,
+    formats: {
+      title: 'PogChamp NEW TITLE! PogChamp 👉 $VALUE$ 👉 ',
+      game: 'PogChamp NEW GAME! PogChamp 👉 $VALUE$ 👉 ',
+      live: `LETSFUCKINGGO EAZYLEMNSQEEZY HAS GONE LIVE! LETSFUCKINGGO 👉 `,
+      offline: `FeelsLifeMan EAZYLEMNSQEEZY HAS GONE OFFLINE! FeelsLifeMan 👉 `
+    },
+  },
 };
 
 opts.channels.push(...Object.keys(enabledChannels));
