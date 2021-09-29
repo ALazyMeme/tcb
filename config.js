@@ -198,6 +198,15 @@ let enabledChannels = {
       offline: `FeelsLifeMan EAZYLEMNSQEEZY HAS GONE OFFLINE! FeelsLifeMan 👉 `
     },
   },
+  inval_idkore: {
+    id: 88812407,
+    formats: {
+      title: 'POGGERS NEW TITLE! POGGERS 👉 $VALUE$ 👉 ',
+      game: 'POGGERS NEW GAME! POGGERS 👉 $VALUE$ 👉 ',
+      live: `Pog INVAL_IDKORE HAS GONE LIVE! Pog 👉 `,
+      offline: `widepeepoSad INVAL_IDKORE HAS GONE OFFLINE! widepeepoSad 👉 `
+    },
+  },
 };
 
 opts.channels.push(...Object.keys(enabledChannels));
