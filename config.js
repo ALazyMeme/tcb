@@ -68,7 +68,7 @@ let enabledChannels = {
         `PogO ALTE HAS GONE OFFLINE! PogO 👉 `
     },
     protection: {
-      endpoint: 'https://alt.feelsokaybot.com/api/v1/banphrases/test',
+      endpoint: 'https://alte.feelsokaybot.com/api/v1/banphrases/test',
       disabledCommands: ['game', 'title', 'islive']
     },
   }
