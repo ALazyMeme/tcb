@@ -11,7 +11,7 @@ const opts = {
     password: secrets.ircPassword,
   },
   channels: [
-    "#alt",
+    "#alte",
     "#donkb0t",
     "#feelsokaybot"
   ],
@@ -36,7 +36,7 @@ const onlinePrintChannel = "donkb0t";
 
 // list of channel names where the bot is not limited to the global 1.2 second
 // slowmode (channels it is broadcaster, moderator or VIP in)
-const modChannels = ["alt", "donkb0t", "feelsokaybot"];
+const modChannels = ["alte", "donkb0t", "feelsokaybot"];
 
 // tip: use !userid <usernames...> command in the #pajlada chat to get user IDs
 // add the "protection" object to enable pajbot banphrase checking protection
@@ -58,14 +58,14 @@ function obfuscateName(str) {
 const globalLengthLimit = 480;
 
 let enabledChannels = {
-  alt: {
+  alte: {
     id: 171817716,
     formats: {
       title: 'PauseChamp NEW TITLE! PauseChamp 👉 $VALUE$ 👉 ',
       game: 'PauseChamp NEW GAME! PauseChamp 👉 $VALUE$ 👉 ',
-      live: `PagMan GuitarTime ALTERNATEAU HAS GONE LIVE! PagMan GuitarTime 👉 `,
+      live: `PagMan GuitarTime ALTE HAS GONE LIVE! PagMan GuitarTime 👉 `,
       offline:
-        `PogO ALTERNATEAU HAS GONE OFFLINE! PogO 👉 `
+        `PogO ALTE HAS GONE OFFLINE! PogO 👉 `
     },
     protection: {
       endpoint: 'https://alt.feelsokaybot.com/api/v1/banphrases/test',
