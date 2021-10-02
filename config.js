@@ -207,6 +207,15 @@ let enabledChannels = {
       offline: `widepeepoSad INVAL_IDKORE HAS GONE OFFLINE! widepeepoSad 👉 `
     },
   },
+  yerdesh: {
+    id: 475321180,
+    formats: {
+      title: 'PogChamp NEW TITLE! PogChamp 👉 $VALUE$ 👉 ',
+      game: 'PogChamp NEW GAME! PogChamp 👉 $VALUE$ 👉 ',
+      live: `PogChamp YERDESH HAS GONE LIVE! PogChamp 👉 `,
+      offline: `FeelsBadMan YERDESH HAS GONE OFFLINE! FeelsBadMan 👉 `
+    },
+  },
 };
 
 opts.channels.push(...Object.keys(enabledChannels));
