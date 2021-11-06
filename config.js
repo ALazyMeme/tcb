@@ -63,7 +63,7 @@ let enabledChannels = {
     formats: {
       title: 'HYPERS NEW TITLE! HYPERS 👉 $VALUE$ 👉 ',
       game: 'GAMING NEW GAME! GAMING 👉 $VALUE$ 👉 ',
-      live: `POGGERS HYRUTV HAS GONE LIVE! POGGERS 👉 `,
+      live: `HyruLive HYRUVERSE HAS GONE LIVE! HyruLive 👉 `,
       offline: `peepoSad HYRUVERSE HAS GONE OFFLINE! peepoSad 👉 `
     },
     protection: {
