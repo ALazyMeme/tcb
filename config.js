@@ -216,6 +216,15 @@ let enabledChannels = {
       offline: `FeelsBadMan YERDESH HAS GONE OFFLINE! FeelsBadMan 👉 `
     },
   },
+  lourdes_ttv: {
+    id: 61706013,
+    formats: {
+      title: 'PogBones NEW TITLE! PogBones 👉 $VALUE$ 👉 ',
+      game: 'PogBones NEW GAME! PogBones 👉 $VALUE$ 👉 ',
+      live: `PogU LOURDES_TTV HAS GONE LIVE! PogU 👉 `,
+      offline: `FeelsBadMan LOURDES_TTV HAS GONE OFFLINE! FeelsBadMan 👉 `
+    },
+  },
 };
 
 opts.channels.push(...Object.keys(enabledChannels));
