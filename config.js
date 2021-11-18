@@ -225,6 +225,15 @@ let enabledChannels = {
       offline: `FeelsBadMan LOURDES_TTV HAS GONE OFFLINE! FeelsBadMan 👉 `
     },
   },
+  seabearkfc: {
+    id: 119070919,
+    formats: {
+      title: 'PauseChamp NEW TITLE! PauseChamp 👉 $VALUE$ 👉 ',
+      game: 'PauseChamp NEW GAME! PauseChamp 👉 $VALUE$ 👉 ',
+      live: `forsenPartyBus SEABEARKFC HAS GONE LIVE! forsenPartyBus 👉 `,
+      offline: `SadPag SEABEARKFC HAS GONE OFFLINE! SadPag 👉 `
+    },
+  },
 };
 
 opts.channels.push(...Object.keys(enabledChannels));
