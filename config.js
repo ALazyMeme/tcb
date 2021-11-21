@@ -234,6 +234,15 @@ let enabledChannels = {
       offline: `SadPag SEABEARKFC HAS GONE OFFLINE! SadPag 👉 `
     },
   },
+  koobytv: {
+    id: 71642781,
+    formats: {
+      title: 'PauseChamp NEW TITLE! PauseChamp 👉 $VALUE$ 👉 ',
+      game: 'PauseChamp NEW GAME! PauseChamp 👉 $VALUE$ 👉 ',
+      live: `PagMan KOOBYTV HAS GONE LIVE! PagMan 👉 `,
+      offline: `Aware KOOBYTV HAS GONE OFFLINE! Aware 👉 `
+    },
+  },
 };
 
 opts.channels.push(...Object.keys(enabledChannels));
