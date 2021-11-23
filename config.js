@@ -11,7 +11,7 @@ const opts = {
     password: secrets.ircPassword,
   },
   channels: [
-    "#zoro491",
+    "#zoro",
     "#zorowoobot",
     "#feelsokaybot"
   ],
@@ -36,7 +36,7 @@ const onlinePrintChannel = "zorowoobot";
 
 // list of channel names where the bot is not limited to the global 1.2 second
 // slowmode (channels it is broadcaster, moderator or VIP in)
-const modChannels = ["zoro491", "zorowoobot", "feelsokaybot"];
+const modChannels = ["zoro", "zorowoobot", "feelsokaybot"];
 
 // tip: use !userid <usernames...> command in the #pajlada chat to get user IDs
 // add the "protection" object to enable pajbot banphrase checking protection
@@ -58,16 +58,16 @@ function obfuscateName(str) {
 const globalLengthLimit = 480;
 
 let enabledChannels = {
-  zoro491: {
+  zoro: {
     id: 91501224,
     formats: {
       title: 'TriHard NEW TITLE! TriHard 👉 $VALUE$ 👉 ',
       game: 'TriHard NEW GAME! TriHard 👉 $VALUE$ 👉 ',
-      live: `TriHard ZORO491 HAS GONE LIVE! TriHard 👉 `,
-      offline: `TriHard ZORO491 HAS GONE OFFLINE! TriHard 👉 `
+      live: `TriHard ZORO HAS GONE LIVE! TriHard 👉 `,
+      offline: `TriHard ZORO HAS GONE OFFLINE! TriHard 👉 `
     },
     protection: {
-      endpoint: 'https://zoro491.feelsokaybot.com/api/v1/banphrases/test',
+      endpoint: 'https://zoro.feelsokaybot.com/api/v1/banphrases/test',
       disabledCommands: ['game', 'title', 'islive']
     },
   }
