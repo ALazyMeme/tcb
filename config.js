@@ -243,6 +243,15 @@ let enabledChannels = {
       offline: `Aware KOOBYTV HAS GONE OFFLINE! Aware 👉 `
     },
   },
+  "2BillionYearOldRock_CD": {
+    id: 109019116,
+    formats: {
+      title: 'PauseMan NEW TITLE! PauseMan 👉 $VALUE$ 👉 ',
+      game: 'PauseMan NEW GAME! PauseMan 👉 $VALUE$ 👉 ',
+      live: `PagMan 2BILLIONYEAROLDROCK_CD HAS GONE LIVE! PagMan 👉 `,
+      offline: `FeelsBadMan 2BILLIONYEAROLDROCK_CD HAS GONE OFFLINE! FeelsBadMan 👉 `
+    },
+  },
 };
 
 opts.channels.push(...Object.keys(enabledChannels));
