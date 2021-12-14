@@ -243,7 +243,7 @@ let enabledChannels = {
       offline: `Aware KOOBYTV HAS GONE OFFLINE! Aware 👉 `
     },
   },
-  "2B_CD": {
+  '2B_CD': {
     id: 109019116,
     formats: {
       title: 'PauseMan NEW TITLE! PauseMan 👉 $VALUE$ 👉 ',
