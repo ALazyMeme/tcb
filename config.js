@@ -252,6 +252,24 @@ let enabledChannels = {
       offline: `FeelsBadMan 2BILLIONYEAROLDROCK_CD HAS GONE OFFLINE! FeelsBadMan 👉 `
     },
   },
+  aevn__: {
+    id: 726559741,
+    formats: {
+      title: 'PogChamp NEW TITLE! PogChamp 👉 $VALUE$ 👉 ',
+      game: 'PogChamp NEW GAME! PogChamp 👉 $VALUE$ 👉 ',
+      live: `PogChamp AEVN__ HAS GONE LIVE! PogChamp 👉 `,
+      offline: `FeelsBadMan AEVN__ HAS GONE OFFLINE! FeelsBadMan 👉 `
+    },
+  },
+  natehowwwe: {
+    id: 154611198,
+    formats: {
+      title: 'PauseChamp NEW TITLE! PauseChamp 👉 $VALUE$ 👉 ',
+      game: 'PauseChamp NEW GAME! PauseChamp 👉 $VALUE$ 👉 ',
+      live: `PAGGING NATEHOWWWE HAS GONE LIVE! PAGGING 👉 `,
+      offline: `FeelsBadMan NATEHOWWWE HAS GONE OFFLINE! FeelsBadMan 👉 `
+    },
+  },
 };
 
 opts.channels.push(...Object.keys(enabledChannels));
