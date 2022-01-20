@@ -270,6 +270,15 @@ let enabledChannels = {
       offline: `FeelsBadMan NATEHOWWWE HAS GONE OFFLINE! FeelsBadMan 👉 `
     },
   },
+  keymash: {
+    id: 43112798,
+    formats: {
+      title: 'PogChamp NEW TITLE! PogChamp 👉 $VALUE$ 👉 ',
+      game: 'PogChamp NEW GAME! PogChamp 👉 $VALUE$ 👉 ',
+      live: `PagMan KEYMASH HAS GONE LIVE! PagMan 👉 `,
+      offline: `FeelsBadMan KEYMASH HAS GONE OFFLINE! FeelsBadMan 👉 `
+    },
+  },
 };
 
 opts.channels.push(...Object.keys(enabledChannels));
