@@ -128,24 +128,25 @@ async function refreshData() {
   }
 }
 
-// do all the updates possible by calling the /channels/:channelId API endpoint
+// do all the updates possible by calling the /channels API endpoint
 async function doChannelAPIUpdates(channelName, channelId) {
   let options = {
     method: "GET",
     json: true,
-    uri: "https://api.twitch.tv/kraken/channels/" + channelId,
+    uri: `https://api.twitch.tv/helix/channels?broadcaster_id=${channelId}`,
     headers: {
-      "Client-ID": config.krakenClientId,
-      Accept: "application/vnd.twitchtv.v5+json",
+      "Authorization": `Bearer ${config.ircPassword}`,
+      "Client-ID": config.ClientId,
+      Accept: "application/json",
     },
   };
 
   try {
     let response = await request(options);
 
-    await updateChannelProperty(channelName, "title", response["status"]);
-    await updateChannelProperty(channelName, "game", response["game"]);
-    await updateChannelProperty(channelName, "id", response["_id"]);
+    await updateChannelProperty(channelName, "title", response["data"]["title"]);
+    await updateChannelProperty(channelName, "game", response["data"]["game_name"]);
+    await updateChannelProperty(channelName, "id", response["data"]["broadcaster_id"]);
   } catch (error) {
     if (error.response && error.response.statusCode !== 422) {
       console.log(error);
@@ -157,22 +158,23 @@ async function doChannelAPIUpdates(channelName, channelId) {
   }
 }
 
-// do all the updates possible by calling the /streams/:channelId API endpoint
+// do all the updates possible by calling the /streams API endpoint
 async function doStreamAPIUpdates(channelName, channelId) {
   let options = {
     method: "GET",
     json: true,
-    uri: "https://api.twitch.tv/kraken/streams/" + channelId,
+    uri: `https://api.twitch.tv/helix/streams?user_id=${channelId}`,
     headers: {
-      "Client-ID": config.krakenClientId,
-      Accept: "application/vnd.twitchtv.v5+json",
+      "Authorization": `Bearer ${config.ircPassword}`,
+      "Client-ID": config.ClientId,
+      Accept: "application/json",
     },
   };
 
   try {
     let response = await request(options);
 
-    if (response["stream"] !== null) {
+    if (response["data"].length > 0) {
       await updateChannelProperty(channelName, "live", true);
     } else {
       await updateChannelProperty(channelName, "live", false);
