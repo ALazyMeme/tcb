@@ -71,13 +71,6 @@ function getChannelAvailableEvents(channelName) {
       hasValue: false,
       description: "when the streamer goes offline",
     },
-    partner: {
-      matcher: function (key, value) {
-        return key === "partner" && value === true;
-      },
-      hasValue: false,
-      description: "when this streamer becomes partnered",
-    },
   };
 
   let returnObject = {};
@@ -152,7 +145,6 @@ async function doChannelAPIUpdates(channelName, channelId) {
 
     await updateChannelProperty(channelName, "title", response["status"]);
     await updateChannelProperty(channelName, "game", response["game"]);
-    await updateChannelProperty(channelName, "partner", response["partner"]);
     await updateChannelProperty(channelName, "id", response["_id"]);
   } catch (error) {
     if (error.response && error.response.statusCode !== 422) {
@@ -161,7 +153,6 @@ async function doChannelAPIUpdates(channelName, channelId) {
 
     await updateChannelProperty(channelName, "title", null);
     await updateChannelProperty(channelName, "game", null);
-    await updateChannelProperty(channelName, "partner", null);
     await updateChannelProperty(channelName, "id", null);
   }
 }
