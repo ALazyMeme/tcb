@@ -8,7 +8,7 @@ const opts = {
   },
   identity: {
     username: "zorowoobot",
-    password: secrets.ircPassword,
+    password: `oauth:${secrets.password}`,
   },
   channels: [
     "#zoro",
@@ -21,7 +21,7 @@ const opts = {
 const commandPrefix = "!";
 
 // Twitch API Client ID
-const krakenClientId = secrets.krakenClientId;
+const clientID = secrets.clientID;
 
 // list of users with superuser privileges. Use with extreme caution, since
 // these users have access to arbitrary code execution with !debug
@@ -78,7 +78,7 @@ opts.channels.push(...Object.keys(enabledChannels));
 module.exports = {
   opts: opts,
   commandPrefix: commandPrefix,
-  krakenClientId: krakenClientId,
+  clientID: clientID,
   administrators: administrators,
   startupChannel: startupChannel,
   onlinePrintChannel: onlinePrintChannel,
