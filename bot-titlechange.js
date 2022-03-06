@@ -144,9 +144,9 @@ async function doChannelAPIUpdates(channelName, channelId) {
   try {
     let response = await request(options);
 
-    await updateChannelProperty(channelName, "title", response["data"]["title"]);
-    await updateChannelProperty(channelName, "game", response["data"]["game_name"]);
-    await updateChannelProperty(channelName, "id", response["data"]["broadcaster_id"]);
+    await updateChannelProperty(channelName, "title", response["data"][0]["title"]);
+    await updateChannelProperty(channelName, "game", response["data"][0]["game_name"]);
+    await updateChannelProperty(channelName, "id", response["data"][0]["broadcaster_id"]);
   } catch (error) {
     if (error.response && error.response.statusCode !== 422) {
       console.log(error);
