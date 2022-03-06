@@ -20,8 +20,9 @@ const opts = {
 // Valid commands start with:
 const commandPrefix = "!";
 
-// Twitch API Client ID
+// Twitch API Client credentials
 const clientID = secrets.clientID;
+const token = secrets.password;
 
 // list of users with superuser privileges. Use with extreme caution, since
 // these users have access to arbitrary code execution with !debug

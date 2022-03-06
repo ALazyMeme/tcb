@@ -135,7 +135,7 @@ async function doChannelAPIUpdates(channelName, channelId) {
     json: true,
     uri: `https://api.twitch.tv/helix/channels?broadcaster_id=${channelId}`,
     headers: {
-      "Authorization": `Bearer ${config.password}`,
+      "Authorization": `Bearer ${config.token}`,
       "Client-ID": config.clientID,
       Accept: "application/json",
     },
@@ -165,7 +165,7 @@ async function doStreamAPIUpdates(channelName, channelId) {
     json: true,
     uri: `https://api.twitch.tv/helix/streams?user_id=${channelId}`,
     headers: {
-      "Authorization": `Bearer ${config.password}`,
+      "Authorization": `Bearer ${config.token}`,
       "Client-ID": config.clientID,
       Accept: "application/json",
     },
