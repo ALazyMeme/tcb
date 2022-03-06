@@ -80,6 +80,7 @@ module.exports = {
   opts: opts,
   commandPrefix: commandPrefix,
   clientID: clientID,
+  token: token,
   administrators: administrators,
   startupChannel: startupChannel,
   onlinePrintChannel: onlinePrintChannel,
